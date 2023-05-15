@@ -1,4 +1,5 @@
 import {NavBar} from "../components/NavBar"
+import { FilterBar } from "../components/FilterBar"
 
 export const ProductPage=()=>
 {
@@ -6,6 +7,7 @@ export const ProductPage=()=>
         
         <div>
             <NavBar />
+            <FilterBar />
         </div>
     )
 }
