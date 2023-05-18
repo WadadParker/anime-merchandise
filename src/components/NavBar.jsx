@@ -12,7 +12,7 @@ export const NavBar=()=>
             <div className="nav-container">
             <i class="fa-solid fa-heart" onClick={()=>navigate("/wishlist")}></i>
             <i class="fa-solid fa-cart-shopping" onClick={()=>navigate("/cart")}></i>
-            <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user" onClick={()=>navigate("/login")}></i>
             </div>
         </nav>
     )
