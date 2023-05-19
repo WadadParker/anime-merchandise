@@ -3,6 +3,7 @@ import logo from "./logo.png";
 import {Route,Routes} from "react-router-dom";
 
 import {NavBar} from "./components/NavBar";
+import Mockman from "mockman-js";
 
 import { ProductPage } from "./pages/ProductPage";
 import {Home} from "./pages/Home";
@@ -24,6 +25,7 @@ function App() {
       <Route path="/products/:productId" element={<ProductCard />} />
       <Route path="/cart" element={<CartPage />} />
       <Route path="/wishlist" element={<WishListPage />} />
+      <Route path="/mock-api" element={<Mockman />} />
     </Routes>
 
     </div>
