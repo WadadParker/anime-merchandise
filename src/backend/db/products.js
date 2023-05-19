@@ -26,7 +26,7 @@ export const products = [
     _id: uuid(),
     title: "Denji's Dream",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/dreams_denji2_comicsense.jpg",
-    rating:4.5,
+    rating:5,
     price: "949",
     categoryName: "oversize",
   },

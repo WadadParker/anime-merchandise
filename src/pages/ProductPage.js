@@ -11,11 +11,12 @@ export const ProductPage=()=>
 
     return (
             <><NavBar />
+            <h1 >All Products</h1>
         <div style={{display:"flex"}}>
             
             <FilterBar />
             <div className="product-listing-page">
-                <h1>All Products</h1>
+                
                 <ul className="products">
                     {finalProductList?.map(({_id,title,img,rating,price})=>
                     (
