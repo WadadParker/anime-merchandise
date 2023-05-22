@@ -149,7 +149,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: auto;
   justify-content: center;
   text-align: center;
 
@@ -171,9 +171,12 @@ body {
   padding: 1rem;
   margin: 1rem;
 }
-
+.signup {
+  width: 40rem;
+  height: auto;
+}
 .container input {
-  padding: 1rem 0;
+  padding: 0.7rem;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   border: 1px solid rgb(194, 194, 194);
@@ -197,6 +200,28 @@ body {
   justify-content:center; 
   margin-top:10rem;
 }
+.body-container-signup {
+  display:flex;
+  justify-content:center; 
+}
+.sub-container {
+  display:flex;
+  gap:1rem;
+  justify-content: space-between;
+}
+#confirm-password {
+  margin-right: 50%;
+}
+#sign-in-button {
+  padding: 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  background-color: rgba(16, 171, 243, 0.897);
+  color: white;
+  font-size: 1.3rem;
+  margin:0 20%;
+}
+
 
 /* Product Card Page */
 

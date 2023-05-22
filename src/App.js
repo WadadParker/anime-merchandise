@@ -25,7 +25,7 @@ function App() {
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/products/:productId" element={<ProductCard />} />
       <Route path="/cart" element={<RequiresAuth><CartPage /></RequiresAuth>} />
-      <Route path="/wishlist" element={<WishListPage />} />
+      <Route path="/wishlist" element={<RequiresAuth><WishListPage /></RequiresAuth>} />
       <Route path="/mock-api" element={<Mockman />} />
     </Routes>
 

@@ -1,14 +1,12 @@
-import {Link, useLocation,useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { useContext } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
 
 import { NavBar } from "../components/NavBar"
 import { AuthContext } from "..";
 
 export const LoginPage=()=>
 {
-  const {authState,dispatch,setIsLoggedIn}=useContext(AuthContext);
+  const {authState,dispatch,loginHandler}=useContext(AuthContext);
   const {email,password}=authState;
 
   const changeHandlerForEmail=(text)=>
@@ -20,27 +18,7 @@ export const LoginPage=()=>
     dispatch({type:"PASSWORD", payload:text})
   }
 
-  const location=useLocation();
-    const navigate=useNavigate();
-
-    const loginHandler=async ()=>
-    {
-        try{
-        const response=await axios.post("/api/auth/login",{email,password})
-        if(response.status===200)
-        {
-            localStorage.setItem("user", JSON.stringify(response.data.foundUser));
-            localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
-            setIsLoggedIn(true);
-            navigate(location?.state?.from?.pathname);
-            toast.success("Login Succesfull, Dattebayo!", {autoClose:2000})
-        }
-        }
-        catch(error){
-            console.log(error);
-            toast.error("Please check your credentials");
-        }
-    }
+  
 
     return (<>
         <NavBar />
