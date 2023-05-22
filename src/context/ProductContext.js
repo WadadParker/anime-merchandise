@@ -65,7 +65,10 @@ export const ProductProvider=({children})=>
     
     useEffect(()=>{getData()},[]);
 
-  
+  const addToCart=(item)=>
+  {
+    
+  }
 
 // Add below code to utils
 

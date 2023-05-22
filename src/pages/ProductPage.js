@@ -6,8 +6,7 @@ import { FilterBar } from "../components/FilterBar"
 
 export const ProductPage=()=>
 {
-    const {state,finalProductList}=useContext(ProductContext);
-    const {productList}=state;
+    const {finalProductList}=useContext(ProductContext);
 
     return (
             <><NavBar />
@@ -18,8 +17,9 @@ export const ProductPage=()=>
             <div className="product-listing-page">
                 
                 <ul className="products">
-                    {finalProductList?.map(({_id,title,img,rating,price})=>
-                    (
+                    {finalProductList?.map((item)=>
+                   {    const {_id,title,img,rating,price}=item;
+                    return (
                         <li key={_id}>
                             <img src={img} width={200} height={250}/>
                             <p>{title}</p>
@@ -28,7 +28,7 @@ export const ProductPage=()=>
                             <button className="go-to-cart">Go to Cart</button>
                             <button className="add-to-cart">Add to Cart</button>
                         </li>
-                    ))}
+                    )})}
 
                 </ul>
             </div>
