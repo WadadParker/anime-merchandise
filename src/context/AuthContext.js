@@ -39,8 +39,8 @@ export const AuthProvider=({children})=>
         const response=await axios.post("/api/auth/login",{email,password})
         if(response.status===200)
         {
-            localStorage.setItem("user", JSON.stringify(response.data.foundUser));
-            localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
+            localStorage.setItem("user", (response.data.foundUser));
+            localStorage.setItem("token", (response.data.encodedToken));
             setIsLoggedIn(true);
             navigate(location?.state?.from?.pathname);
             toast.success("Login Succesfull, Dattebayo!", {autoClose:2000});
@@ -64,8 +64,8 @@ export const AuthProvider=({children})=>
         const response=await axios.post("/api/auth/signup",{newEmail,newPassword,firstName,lastName})
         if(response.status===201)
         {
-            localStorage.setItem("user", JSON.stringify(response.data.createdUser));
-            localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
+            localStorage.setItem("user", response.data.createdUser);
+            localStorage.setItem("token", response.data.encodedToken);
             setIsLoggedIn(true);
             navigate(-2);
             toast.success("Sign Up Succesfull, Dattebayo!", {autoClose:2000})

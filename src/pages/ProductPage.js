@@ -1,12 +1,14 @@
 import {useContext} from "react";
 
 import {ProductContext} from "..";
+import { CartWishlistContext } from "..";
 import {NavBar} from "../components/NavBar"
 import { FilterBar } from "../components/FilterBar"
 
 export const ProductPage=()=>
 {
     const {finalProductList}=useContext(ProductContext);
+    const {addToCart}=useContext(CartWishlistContext);
 
     return (
             <><NavBar />
@@ -26,7 +28,7 @@ export const ProductPage=()=>
                             <span style={{marginTop:"-0.7rem"}}>Rating: {rating}</span>
                             <strong>Rs {price}</strong>
                             <button className="go-to-cart">Go to Cart</button>
-                            <button className="add-to-cart">Add to Cart</button>
+                            <button className="add-to-cart" onClick={()=>addToCart(item)}>Add to Cart</button>
                         </li>
                     )})}
 
