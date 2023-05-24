@@ -16,13 +16,13 @@ export const CartWishlistProvider=({children})=>
                 return {...list,cartList:payload};
             
             case "WISHLIST":
-                return {...list,wishList:payload};    
+                return {...list,wishlist:payload};    
         }
     }
 
     const initialState={
         cartList:[],
-        wishList:[],
+        wishlist:[],
     }
     const [state,dispatch]=useReducer(cartAndWishlistreducer,initialState);
     
@@ -151,7 +151,17 @@ const addToWishlist=async(item)=>
         const response=await axios.post("/api/user/wishlist",{product:item},{headers:{authorization:encodedToken}});
         if(response.status===201)
         {
-            dispatch({type:"WISHLIST",payload:response.data.wishlist})
+            dispatch({type:"WISHLIST",payload:response.data.wishlist});
+            toast.success(`${item.title} added to WishList`, {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
     catch(error)
@@ -159,12 +169,51 @@ const addToWishlist=async(item)=>
         console.log(error);
     }
 }
+const removeFromWishlist=async (id)=>
+{
+    try{
+        const response=await axios.delete(`/api/user/wishlist/${id}`,{headers:{authorization:encodedToken}})
+        if(response.status===200)
+        {
+            dispatch({type:"WISHLIST",payload:response.data.wishlist});
+            toast.error(`Removed from wishlist`, {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+        }
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 
+
+const inWishlist=(id)=>{
+    const foundItem=[...state.wishlist].find(({_id})=>_id==id);
+    if(foundItem===undefined)
+    return true;
+    else
+    return false;
+}
+const inCart=(id)=>
+{
+    const foundCartItem=[...state.cartList].find(({_id})=>_id==id);
+    if(foundCartItem===undefined)
+    return true;
+    else
+    return false;
+}
 
 
 
     return (
-        <CartWishlistContext.Provider value={{state,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice}}>
+        <CartWishlistContext.Provider value={{state,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist}}>
             {children}
         </CartWishlistContext.Provider>
     )

@@ -113,7 +113,6 @@ export const ProductProvider=({children})=>
 
     const finalProductList=sortProducts(sort,filteredByCategory);
 
-
     return (
         <ProductContext.Provider value={{state,dispatch,finalProductList}}>
             {children}
