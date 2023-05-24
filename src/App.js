@@ -5,6 +5,8 @@ import {Route,Routes} from "react-router-dom";
 import {NavBar} from "./components/NavBar";
 import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { ProductPage } from "./pages/ProductPage";
 import {Home} from "./pages/Home";
@@ -17,7 +19,19 @@ import { WishListPage } from "./pages/WishlistPage";
 function App() {
   return (
     <div className="App">
-      
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+                />
+      <ToastContainer />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<ProductPage />} />

@@ -43,13 +43,31 @@ export const AuthProvider=({children})=>
             localStorage.setItem("token", (response.data.encodedToken));
             setIsLoggedIn(true);
             navigate(location?.state?.from?.pathname);
-            toast.success("Login Succesfull, Dattebayo!", {autoClose:2000});
+            toast.success('Login Successfull, Dattebayo!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(location?.state?.from?.pathname);
         }
         }
         catch(error){
             console.log(error);
-            toast.error("Please check your credentials");
+            toast.error('Please check your credentials!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
 
@@ -68,17 +86,44 @@ export const AuthProvider=({children})=>
             localStorage.setItem("token", response.data.encodedToken);
             setIsLoggedIn(true);
             navigate(-2);
-            toast.success("Sign Up Succesfull, Dattebayo!", {autoClose:2000})
+            toast.success('Signup Successfull, Dattebayo!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(location?.state?.from?.pathname,"working",response.data);
         }
         }
         catch(error){
             console.log(error);
-            toast.error("Account already exists");
+            toast.error('Account already exists', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
         else {
-            toast.error("Passwords do not match");
+            toast.warn('Passwords do not match', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }  
     }
 

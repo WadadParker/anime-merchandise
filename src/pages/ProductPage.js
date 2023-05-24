@@ -23,6 +23,7 @@ export const ProductPage=()=>
                    {    const {_id,title,img,rating,price}=item;
                     return (
                         <li key={_id}>
+                            <i class="fa-solid fa-heart wishlist"></i>
                             <img src={img} width={200} height={250}/>
                             <p>{title}</p>
                             <span style={{marginTop:"-0.7rem"}}>Rating: {rating}</span>
