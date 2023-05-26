@@ -42,7 +42,7 @@ function App() {
       <Route path="/cart" element={<RequiresAuth><CartPage /></RequiresAuth>} />
       <Route path="/wishlist" element={<RequiresAuth><WishListPage /></RequiresAuth>} />
       <Route path="/mock-api" element={<Mockman />} />
-      <Route path="/checkout" element={<AddressPage />} />
+      <Route path="/checkout" element={<RequiresAuth><AddressPage /></RequiresAuth>} />
     </Routes>
 
     </div>

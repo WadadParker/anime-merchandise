@@ -25,6 +25,7 @@ export const CartWishlistProvider=({children})=>
         wishlist:[],
     }
     const [state,dispatch]=useReducer(cartAndWishlistreducer,initialState);
+    const {cartList}=state;
     
     const getCart=async ()=>
     {
@@ -210,7 +211,7 @@ const inCart=(id)=>
     return false;
 }
     return (
-        <CartWishlistContext.Provider value={{state,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist}}>
+        <CartWishlistContext.Provider value={{state,cartList,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist}}>
             {children}
         </CartWishlistContext.Provider>
     )
