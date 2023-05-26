@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router";
 
 import { CartWishlistContext } from "..";
 import { NavBar } from "../components/NavBar"
@@ -7,6 +8,7 @@ export const CartPage=()=>
 {
     const {state,incrementQuantity,decrementQuantity, deleteFromCart,totalPrice}=useContext(CartWishlistContext);
     const {cartList}=state;
+    const navigate=useNavigate();
 
     return (
         <>
@@ -50,7 +52,7 @@ export const CartPage=()=>
                 <p style={{flexGrow:"1"}}>Total Price</p>
                 <p><b>{totalPrice}</b></p>
             </li>
-            <button >Place Order</button>
+            <button onClick={()=>navigate("/checkout")}>Place Order</button>
         </div>
     </div>
     </>

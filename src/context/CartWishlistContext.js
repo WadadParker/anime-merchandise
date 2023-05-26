@@ -209,9 +209,6 @@ const inCart=(id)=>
     else
     return false;
 }
-
-
-
     return (
         <CartWishlistContext.Provider value={{state,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist}}>
             {children}
