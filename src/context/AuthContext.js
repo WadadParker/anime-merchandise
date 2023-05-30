@@ -33,7 +33,7 @@ export const AuthProvider=({children})=>
     const [authState,dispatch]=useReducer(AuthReducer,initialState);
     const {email,password,signUp:{firstName,lastName,email:newEmail,password:newPassword,confirmPassword}}=authState;
 
-    const loginHandler=async ()=>
+    const loginHandler=async (getCart)=>
     {
         try{
         const response=await axios.post("/api/auth/login",{email,password})
@@ -53,6 +53,7 @@ export const AuthProvider=({children})=>
                 progress: undefined,
                 theme: "colored",
                 });
+                getCart();
             console.log(location?.state?.from?.pathname);
         }
         }

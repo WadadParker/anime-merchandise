@@ -2,10 +2,11 @@ import {Link} from "react-router-dom";
 import { useContext } from "react";
 
 import { NavBar } from "../components/NavBar"
-import { AuthContext } from "..";
+import { AuthContext,CartWishlistContext } from "..";
 
 export const LoginPage=()=>
 {
+  const {getCart}=useContext(CartWishlistContext);
   const {authState,dispatch,loginHandler}=useContext(AuthContext);
   const {email,password}=authState;
 
@@ -34,7 +35,7 @@ export const LoginPage=()=>
             <label>Password: </label>
           </b>
           <input placeholder="wadadparker" value={password} onChange={(e)=>changeHandlerForPassword(e.target.value)}></input>
-          <button onClick={loginHandler}>Login</button>
+          <button onClick={()=>loginHandler(getCart)}>Login</button>
         </div>
         <a href="">Forgot Password?</a>
         <Link to="/signup">Create new Account</Link>

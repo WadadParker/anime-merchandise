@@ -26,7 +26,7 @@ export const CartPage=()=>
                 <b style={{flexGrow:"1"}}>Rs {price}</b>
                     <div className="quantity-container">
                         <label>Quantity: </label>
-                        <button onClick={()=>decrementQuantity(_id)} disabled={qty==1}> - </button>
+                        <button onClick={()=>decrementQuantity(_id)} disabled={qty<=1}> - </button>
                         <span>{qty}</span>
                         <button onClick={()=>incrementQuantity(_id)}> + </button>
                     </div>

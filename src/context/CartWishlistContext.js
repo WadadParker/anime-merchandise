@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer, useEffect, useContext } from "react";
 import axios from "axios";
 
 import {toast } from 'react-toastify';
@@ -29,13 +29,16 @@ export const CartWishlistProvider=({children})=>
     
     const getCart=async ()=>
     {
+        const encodedToken=localStorage.getItem("token");
         try {
-            
+            if(encodedToken!=="")
+            {
             const response=await axios.get("/api/user/cart",{headers:{authorization:encodedToken}});
             if(response.status===200)
             {
                 dispatch({type:"CART",payload:response.data.cart});
             }
+        }
         }
         catch(error)
         {
@@ -210,8 +213,27 @@ const inCart=(id)=>
     else
     return false;
 }
+const logoutHandler=(setIsLoggedIn)=>
+{
+    setIsLoggedIn(false);
+    localStorage.setItem("user", "");
+    localStorage.setItem("token","" );
+    toast.warn('Logged Out', {
+        position: "top-left",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
+    dispatch({type:"CART",payload:[]});    
+    
+
+}
     return (
-        <CartWishlistContext.Provider value={{state,cartList,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist}}>
+        <CartWishlistContext.Provider value={{state,cartList,getCart,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist,logoutHandler}}>
             {children}
         </CartWishlistContext.Provider>
     )

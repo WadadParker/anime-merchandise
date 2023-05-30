@@ -5,11 +5,11 @@ import {Route,Routes} from "react-router-dom";
 import {NavBar} from "./components/NavBar";
 import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ProductPage } from "./pages/ProductPage";
-import {Home} from "./pages/Home";
+import {Home} from "./pages/home/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { SignUpPage } from "./pages/SignUpPage";
 import { ProductCard } from "./pages/ProductCard";
