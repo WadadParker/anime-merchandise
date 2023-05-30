@@ -6,9 +6,21 @@ import { useNavigate } from "react-router";
 
 export const WishListPage=()=>
 {
-    const {state, inCart, addToCart, removeFromWishlist}=useContext(CartWishlistContext);
+    const {state, inCart, addToCart, removeFromWishlist,incrementQuantity}=useContext(CartWishlistContext);
     const {wishlist}=state;
     const navigate=useNavigate();
+
+    const clickHandler=(id,cartItem)=>
+    {
+        if(inCart(id))
+        {
+            addToCart(cartItem)
+        }
+        else 
+        {
+            incrementQuantity(id)
+        }
+    }
     return (
         <>
         <NavBar />
@@ -22,10 +34,7 @@ export const WishListPage=()=>
                         <img src={img} width={200} height={250} />
                         <p>{title}</p>
                         <strong>Rs {price}</strong>
-                        {inCart(_id)
-                            ?(<button className="add-to-cart" onClick={()=>addToCart(item)}>Add to Cart</button>)
-                            :(<button className="go-to-cart" onClick={()=>navigate("/cart")}>Go to Cart</button>)
-                            }
+                        <button className="add-to-cart" onClick={()=>clickHandler(_id,item)}>Add to Cart</button>
                         <button className="remove-from-wishlist" onClick={()=>removeFromWishlist(_id)}>Remove from Wishlist</button>    
                     </li>
                 )})}
