@@ -6,7 +6,7 @@ import { NavBar } from "../components/NavBar"
 
 export const CartPage=()=>
 {
-    const {state,incrementQuantity,decrementQuantity, deleteFromCart,totalPrice}=useContext(CartWishlistContext);
+    const {state,incrementQuantity,decrementQuantity, deleteFromCart,totalPrice,inWishlist,addToWishlist,removeFromWishlist}=useContext(CartWishlistContext);
     const {cartList}=state;
     const navigate=useNavigate();
 
@@ -20,6 +20,8 @@ export const CartPage=()=>
                 const {_id,title,img,rating,qty,price}=item;
                 return(
             <li className="cart-item-container" key={_id}>
+                {inWishlist(_id)?(<i class="fa-solid fa-heart wishlist" onClick={()=>addToWishlist(item)}></i>)
+                :(<i class="fa-solid fa-heart-crack wishlist" onClick={()=>removeFromWishlist(_id)}></i>)}
                 <img src={img} width={200} height={200} />
                 <div className="cart-item-description">
                 <p>{title}</p>   
