@@ -21,7 +21,9 @@ export const AuthProvider=({children})=>
                 return {...auth,password:payload};   
             
             case "SIGN_UP":
-                return {...auth,signUp:{...auth.signUp,[inputField]:payload}}        
+                return {...auth,signUp:{...auth.signUp,[inputField]:payload}}  
+            case "TOGGLE_PASSWORD":
+                return {...auth,passwordIcon:!auth.passwordIcon}          
         }
     }
 
@@ -29,6 +31,7 @@ export const AuthProvider=({children})=>
         email:"wadadparker@gmail.com",
         password:"wadadparker",
         signUp:{firstName:"",lastName:"",email:"",password:"",confirmPassword:""},
+        passwordIcon:false,
     }
     const [authState,dispatch]=useReducer(AuthReducer,initialState);
     const {email,password,signUp:{firstName,lastName,email:newEmail,password:newPassword,confirmPassword}}=authState;

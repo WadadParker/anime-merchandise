@@ -8,7 +8,7 @@ export const LoginPage=()=>
 {
   const {getCart}=useContext(CartWishlistContext);
   const {authState,dispatch,loginHandler}=useContext(AuthContext);
-  const {email,password}=authState;
+  const {email,password,passwordIcon}=authState;
 
   const changeHandlerForEmail=(text)=>
   { 
@@ -18,7 +18,7 @@ export const LoginPage=()=>
   { 
     dispatch({type:"PASSWORD", payload:text})
   }
-
+  
   
 
     return (<>
@@ -34,7 +34,14 @@ export const LoginPage=()=>
           <b>
             <label>Password: </label>
           </b>
-          <input placeholder="wadadparker" value={password} onChange={(e)=>changeHandlerForPassword(e.target.value)}></input>
+          <div>
+          <input type={passwordIcon?"password":"text"} placeholder="wadadparker" value={password} onChange={(e)=>changeHandlerForPassword(e.target.value)}></input>
+          {passwordIcon ? (
+            <i class="fa-solid fa-eye" onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          ) : (
+            <i class="fa-solid fa-eye-slash" onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          )}
+          </div>
           <button onClick={()=>loginHandler(getCart)}>Login</button>
         </div>
         <a href="">Forgot Password?</a>

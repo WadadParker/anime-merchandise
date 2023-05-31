@@ -7,7 +7,7 @@ import { NavBar } from "../components/NavBar"
 export const SignUpPage=()=>
 {
   const {authState,dispatch, signUpHandler}=useContext(AuthContext);
-  const {signUp:{firstName,lastName,email,password,confirmPassword}}=authState;
+  const {signUp:{firstName,lastName,email,password,confirmPassword},passwordIcon}=authState;
     return (<>
         <NavBar />
         <div className="body-container-signup">
@@ -35,13 +35,25 @@ export const SignUpPage=()=>
             <b>
               <label htmlFor="password">Password: </label>
             </b>
-            <input htmlFor="password" value={password} onChange={(e)=>dispatch({type:"SIGN_UP",paylod:e.target.value,inputField:"password"})}></input>
-
+            <div>
+            <input type={passwordIcon?"password":"text"} id="password" value={password} onChange={(e)=>dispatch({type:"SIGN_UP",paylod:e.target.value,inputField:"password"})}></input>
+            {passwordIcon ? (
+            <i class="fa-solid fa-eye" onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          ) : (
+            <i class="fa-solid fa-eye-slash" onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          )}
+            </div>
           </div>
 
           <b><label for="confirm-password">Confirm Password: </label></b>
-          <input id="confirm-password" value={confirmPassword} onChange={(e)=>dispatch({type:"SIGN_UP",paylod:e.target.value,inputField:"confirmPassword"})}></input>
-
+          <div>
+          <input type={passwordIcon?"password":"text"} id="confirm-password" value={confirmPassword} onChange={(e)=>dispatch({type:"SIGN_UP",paylod:e.target.value,inputField:"confirmPassword"})}></input>
+          {passwordIcon ? (
+            <i class="fa-solid fa-eye" style={{marginLeft:"-22rem"}} onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          ) : (
+            <i class="fa-solid fa-eye-slash" style={{marginLeft:"-22rem"}} onClick={() => dispatch({type:"TOGGLE_PASSWORD"})}></i>
+          )}
+          </div>
           <button id="sign-in-button" onClick={signUpHandler}>Sign-in</button>
         </div>
         <Link to="/login">Already have an Account</Link>

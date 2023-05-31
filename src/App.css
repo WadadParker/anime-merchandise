@@ -210,7 +210,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: fit-content;
   justify-content: center;
   text-align: center;
 
@@ -221,23 +221,23 @@ body {
 .Main {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
   text-align: center;
   align-items: center;
   justify-content: center;
   width: 30rem;
-  height: 25rem;
+  height: fit-content;
   border: 1px solid rgb(168, 166, 166);
   border-radius: 0.2rem;
   padding: 1rem;
   margin: 1rem;
+  font-size: 1.5rem;
 }
 .signup {
   width: 40rem;
   height: auto;
 }
 .container input {
-  padding: 0.7rem;
+  padding: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
   border: 1px solid rgb(194, 194, 194);
@@ -259,7 +259,8 @@ body {
 .body-container {
   display:flex;
   justify-content:center; 
-  margin-top:10rem;
+  margin-top:7rem;
+  
 }
 .body-container-signup {
   display:flex;
@@ -272,6 +273,7 @@ body {
 }
 #confirm-password {
   margin-right: 50%;
+  width: 20rem;
 }
 #sign-in-button {
   padding: 0.7rem;
@@ -282,51 +284,10 @@ body {
   font-size: 1.3rem;
   margin:0 20%;
 }
+.fa-eye,.fa-eye-slash {
+  margin-left: -2rem;
+}
 
-
-/* Product Card Page */
-
-/* .product-card-container {
-  display: flex;
-  flex-direction: row;
-  width: 50rem;
-  height: 20rem;
-  justify-content:space-evenly;
-  margin-top:10rem;
-  padding:2rem 0rem;
-  border:1px solid rgb(205, 205, 205);
-  border-radius: 1rem;
-  box-shadow: 0px 0px 4px 2px rgb(47, 47, 47);
-}
-.product-details-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  padding:1rem 0;
-}
-.price-with-flex-grow {
-  flex-grow: 1;
-}
-.quantity-container{
-  margin:1rem;
-}
-.quantity-container button{
-  border:1px solid rgb(211, 211, 211);
-  font-size: 1.5rem;
-  border-radius: 50%;
-  background-color: white;
-}
-.quantity-container span {
-  border:1px solid rgb(216, 216, 216);
-  padding:0 1rem;
-  margin:0 0.5rem;
-  font-size: larger;
-}
-.button-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-} */
 /* Cart Page */
 .cart-container {
   display: flex;
