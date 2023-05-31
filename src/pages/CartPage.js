@@ -3,17 +3,21 @@ import { useNavigate } from "react-router";
 
 import { CartWishlistContext } from "..";
 import { NavBar } from "../components/NavBar"
+import { LoadingSpinner } from "../components/Loader";
 
 export const CartPage=()=>
 {
-    const {state,incrementQuantity,decrementQuantity, deleteFromCart,totalPrice,inWishlist,addToWishlist,removeFromWishlist}=useContext(CartWishlistContext);
+    const {state,incrementQuantity,decrementQuantity, deleteFromCart,totalPrice,inWishlist,addToWishlist,removeFromWishlist,isLoading}=useContext(CartWishlistContext);
     const {cartList}=state;
     const navigate=useNavigate();
 
     return (
         <>
         <NavBar />
-        <h1>My Cart ({cartList.length})</h1>
+
+       {isLoading 
+       ?(<LoadingSpinner />)
+       :<><h1>My Cart ({cartList.length})</h1>
         <div className="cart-container">
         <ul className="cart-list-container">
             {cartList.map((item)=>{
@@ -56,7 +60,7 @@ export const CartPage=()=>
             </li>
             <button onClick={()=>navigate("/checkout")}>Place Order</button>
         </div>
-    </div>
+    </div></>}
     </>
     )
 }

@@ -3,14 +3,15 @@ import { useNavigate } from "react-router";
 
 import {ProductContext} from "..";
 import { CartWishlistContext } from "..";
-import {NavBar} from "../components/NavBar"
-import { FilterBar } from "../components/FilterBar"
+import {NavBar} from "../components/NavBar";
+import { FilterBar } from "../components/FilterBar";
+import { LoadingSpinner } from "../components/Loader";
 
 export const ProductPage=()=>
 {
     const {finalProductList}=useContext(ProductContext);
     const navigate=useNavigate();
-    const {addToCart, addToWishlist, inWishlist,inCart,incrementQuantity, removeFromWishlist}=useContext(CartWishlistContext);
+    const {addToCart, addToWishlist, inWishlist,inCart,incrementQuantity, removeFromWishlist,isLoading}=useContext(CartWishlistContext);
 
     const clickHandler=(cartItem)=>
     {
@@ -28,7 +29,8 @@ export const ProductPage=()=>
             <FilterBar />
             <div className="product-listing-page">
                 
-                <ul className="products">
+                {isLoading?(<LoadingSpinner/>)
+                :<ul className="products">
                     {finalProductList?.map((item)=>
                    {    const {_id,title,img,rating,price}=item;
                     return (
@@ -46,7 +48,7 @@ export const ProductPage=()=>
                         </li>
                     )})}
 
-                </ul>
+                </ul>}
             </div>
         </div>
         </>

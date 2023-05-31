@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect, useContext } from "react";
+import { createContext, useReducer, useEffect, useState } from "react";
 import axios from "axios";
 
 import {toast } from 'react-toastify';
@@ -6,6 +6,8 @@ export const CartWishlistContext=createContext();
 
 export const CartWishlistProvider=({children})=>
 {
+    const [isLoading,setIsLoading]=useState(true);
+
     const encodedToken=localStorage.getItem("token");
     console.log(encodedToken);
     const cartAndWishlistreducer=(list,{type,payload})=>
@@ -13,9 +15,11 @@ export const CartWishlistProvider=({children})=>
         switch(type)
         {
             case "CART":
+                setIsLoading(false);
                 return {...list,cartList:payload};
             
             case "WISHLIST":
+                setIsLoading(false);
                 return {...list,wishlist:payload};    
         }
     }
@@ -233,7 +237,7 @@ const logoutHandler=(setIsLoggedIn)=>
 
 }
     return (
-        <CartWishlistContext.Provider value={{state,cartList,getCart,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist,logoutHandler}}>
+        <CartWishlistContext.Provider value={{state,cartList,getCart,addToCart,incrementQuantity,decrementQuantity, deleteFromCart, totalPrice, addToWishlist,inWishlist,inCart,removeFromWishlist,logoutHandler,isLoading,setIsLoading}}>
             {children}
         </CartWishlistContext.Provider>
     )
