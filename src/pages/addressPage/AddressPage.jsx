@@ -11,7 +11,8 @@ export const AddressPage = () => {
 
     const {cartList,totalPrice}=useContext(CartWishlistContext);
     const {state,setModalOpen,dispatch}=useContext(AddressContext);
-    const {addressList}=state;
+    const {addressList,selectedAddressIndex}=state;
+    const selectedAddress=addressList[selectedAddressIndex];
 
   return (
     <>
@@ -22,18 +23,18 @@ export const AddressPage = () => {
         <div className="address-container">
         <h2 style={{marginLeft:"3rem"}}>Address Details</h2>
         <ul className="address-list">
-          {addressList?.map((item,index)=>{
+          {addressList?.map((item,addressIndex)=>{
             const {name,number,pincode,fullAddress,city,altphno,chooseState}=item;
             return(
-              <li key={index} className="address-list-item">
-                <input type="radio" name="address" className="input-address" onChange={()=>dispatch({type:"SELECT_ADDRESS",payload:item})}></input>
+              <li key={addressIndex} className="address-list-item">
+                <input type="radio" name="address" className="input-address" onChange={()=>dispatch({type:"SELECT_ADDRESS",index:addressIndex})}></input>
                 <main>
                   <h1>{name}</h1>
                   <p>{fullAddress} {city} {chooseState}</p>
                   <span>Pin: {pincode}</span>
                   <p><b>Mobile: </b> {number}</p>
                 </main>
-                <i class="fa-solid fa-pen-to-square address-edit" onClick={()=>{dispatch({type:"EDIT_ADDRESS",payload:item});setModalOpen(true)}}></i>
+                <i class="fa-solid fa-pen-to-square address-edit" onClick={()=>{dispatch({type:"EDIT_ADDRESS",payload:item,index:addressIndex});setModalOpen(true)}}></i>
               </li>
             )})}
             <li className="add-new-address">
@@ -58,6 +59,10 @@ export const AddressPage = () => {
                 <p style={{flexGrow:"1"}}>Total Price</p>
                 <p><b>{totalPrice}</b></p>
             </li>
+            {selectedAddress && <><strong>{selectedAddress?.name}</strong>
+            <p>{selectedAddress?.fullAddress} {selectedAddress?.city} {selectedAddress?.chooseState}</p>
+            <span>Pin: {selectedAddress?.pincode}</span>
+            <p><b>Mobile: </b> {selectedAddress?.number}</p></>}
             <button>Checkout</button>
         </div>
         </div>

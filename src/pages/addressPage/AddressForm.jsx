@@ -19,7 +19,7 @@ const customStyles = {
 
 export const AddressForm = () => {
   const {state,dispatch,checkEmptyInputFields,modalOpen, setModalOpen}=useContext(AddressContext);
-  const {address:{name,number,pincode,fullAddress,city,altphno,chooseState}}=state;
+  const {address:{name,number,pincode,fullAddress,city,altphno,chooseState},editAddress}=state;
 
   return (
     <>
@@ -72,7 +72,7 @@ export const AddressForm = () => {
             </select>
           </div>
           <div className="form-element buttons-container">
-            <button className="add" onClick={checkEmptyInputFields}>Add</button>
+            <button className="add" onClick={checkEmptyInputFields}>{editAddress?"Update":"Add"}</button>
             <button className="next" onClick={()=>dispatch({type:"RESET_ADDRESS"})}>Reset</button>
             <button className="next" onClick={()=>dispatch({type:"RANDOM_ADDRESS"})}>Random Data</button>
             <button className="cancel" onClick={() => {setModalOpen(false);dispatch({type:"RESET_ADDRESS"})}}>Cancel</button>
