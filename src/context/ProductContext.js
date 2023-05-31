@@ -72,7 +72,7 @@ export const ProductProvider=({children})=>
     const searchedProducts= productList.filter(({title})=>title.toLowerCase().includes(search.toLowerCase()));
 
 
-    const filteredByRating= searchedProducts.filter(({rating})=>rating>=slider);
+    const filteredByRating= productList.filter(({rating})=>rating>=slider);
    
     const filterByCategory=(category,products)=>
     {
@@ -114,7 +114,7 @@ export const ProductProvider=({children})=>
     const finalProductList=sortProducts(sort,filteredByCategory);
 
     return (
-        <ProductContext.Provider value={{state,dispatch,finalProductList}}>
+        <ProductContext.Provider value={{state,dispatch,searchedProducts,finalProductList}}>
             {children}
         </ProductContext.Provider>
     )

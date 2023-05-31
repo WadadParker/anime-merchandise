@@ -85,15 +85,19 @@ body {
   justify-content: space-around;
   background-color: rgb(230, 230, 230);
   padding:1rem;
+  position: relative;
 }
 .NavBar .fa-solid {
   margin:1rem;
   font-size: 1.4rem;
 }
 .NavBar input {
-  width: 15rem;
   border-radius: 0.4rem;
   border:0px solid;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  width: 35rem;
 }
 .nav-container button {
   border:0;
@@ -105,7 +109,32 @@ body {
   margin-left:1rem;
   margin-right:1rem ;
 }
+.nav-search-container{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
+.nav-sub-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+.search-container {
+  position: absolute;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  border: 1px solid;
+  left: 38rem;
+  width: 35rem;
+  overflow-y: scroll;
+  height: 40rem;
+  margin-top: 4rem;
+  background-color: white;
+}
 /* Filter Bar Styling */
 
 .filter-container {

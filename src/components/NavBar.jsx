@@ -6,7 +6,7 @@ import {ProductContext,AuthContext,CartWishlistContext} from "..";
 
 export const NavBar=()=>
 {
-    const {state,dispatch}=useContext(ProductContext);
+    const {state,dispatch,searchedProducts}=useContext(ProductContext);
     const {isLoggedIn,setIsLoggedIn} = useContext(AuthContext);
     const {logoutHandler}=useContext(CartWishlistContext);
     const {search}=state;
@@ -16,7 +16,29 @@ export const NavBar=()=>
         <nav className="NavBar">
             <Link to="/">AnimeCon</Link>
             {/* <label><i class="fa-solid fa-magnifying-glass"></i></label> */}
+           <div style={{display:"flex",flexDirection:"column"}}>
             <input type="search" placeholder="Search for products" value={search} onChange={(e)=>dispatch({type:"SEARCH",payload:e.target.value})} ></input>
+            {search !== "" && (
+        <div className="search-container">
+          {searchedProducts.map(({_id,title,img,price}) => (
+            <li style={{ margin: "1rem" }} key={_id}>
+              <div className="nav-search-container">
+                <img
+                  src={img}
+                  width={200}
+                  height={250}
+                  alt={""}
+                />
+                <div className="nav-sub-container">
+                  <strong>{title}</strong>
+                  <p>Go to this item {price}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </div>
+      )}
+      </div>
             <div className="nav-container">
             <i class="fa-solid fa-heart" onClick={()=>navigate("/wishlist")}></i>
             <i class="fa-solid fa-cart-shopping" onClick={()=>navigate("/cart")}></i>
