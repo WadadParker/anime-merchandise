@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 
 export const products = [
   {
-    _id: uuid(),
+    _id: "1",
     title: "Wings of Freedom",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/09/aot_tiedye_comicsense.jpg",
     rating:3.5,
@@ -16,7 +16,7 @@ export const products = [
     categoryName: "oversize",
   },
   {
-    _id: uuid(),
+    _id: "2",
     title: "Inosuke Beast",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/demonslayer_innosuke_beastbreathing_secondfang_oversizetee_back_listing_hitanshi_comicsense.jpg",
     rating:4,
@@ -25,7 +25,7 @@ export const products = [
     categoryName: "oversize",
   },
   {
-    _id: uuid(),
+    _id: "3",
     title: "Denji's Dream",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/dreams_denji2_comicsense.jpg",
     rating:5,
@@ -34,7 +34,7 @@ export const products = [
     categoryName: "oversize",
   },
   {
-    _id: uuid(),
+    _id: "4",
     title: "Black Dragon",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/05/tokyorevengers_blackdragon_fullsleevetee_listing3_hitanshi-800x1067.jpg",
     rating:4,
@@ -43,7 +43,7 @@ export const products = [
     categoryName: "oversize",
   },
   {
-    _id: uuid(),
+    _id: "5",
     title: "Anya",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/06/anya_oversize_white_ha_comicsense.jpg",
     rating:2,
@@ -52,7 +52,7 @@ export const products = [
     categoryName: "oversize",
   },
   {
-    _id: uuid(),
+    _id: "6",
     title: "AOT Jacket",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/aot_bomber_front_comicsense.jpg",
     rating:5,
@@ -61,7 +61,7 @@ export const products = [
     categoryName: "winterWear",
   },
   {
-    _id: uuid(),
+    _id: "7",
     title: "Draken Jacket",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/11/draken_bomber_compressed.jpg",
     rating:3.5,
@@ -70,7 +70,7 @@ export const products = [
     categoryName: "winterWear",
   },
   {
-    _id: uuid(),
+    _id: "8",
     title: "One Piece",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/one_piece_pirates_bomberjacket_comicsense.jpg",
     rating:4.5,
@@ -79,7 +79,7 @@ export const products = [
     categoryName: "winterWear",
   },
   {
-    _id: uuid(),
+    _id: "9",
     title: "Itadori Uniform",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/09/itadori_cosplay_hoodief_comicsense.jpg",
     rating:4,
@@ -88,7 +88,7 @@ export const products = [
     categoryName: "winterWear",
   },
   {
-    _id: uuid(),
+    _id: "10",
     title: "Akatsuki",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/akatsuki_hoodie_front_comicsense.jpg",
     rating:2,
@@ -97,7 +97,7 @@ export const products = [
     categoryName: "winterWear",
   },
   {
-    _id: uuid(),
+    _id: "11",
     title: "Zenitsu",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/closeups7_comicsense.jpg",
     rating:5,
@@ -106,7 +106,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "12",
     title: "Monkey D Luffy",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/bp192805_comicsense.jpg",
     rating:5,
@@ -115,7 +115,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "13",
     title: "Takemichi Hanagaki",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/takemichi5_comicsense-1.jpg",
     rating:5,
@@ -124,7 +124,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "14",
     title: "L",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/L_SFC_comicsense-1.jpg",
     rating:5,
@@ -133,7 +133,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "15",
     title: "Izuju Midoriya",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/11/deku_comicsense.jpg",
     rating:4.5,
@@ -142,7 +142,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "16",
     title: "Jolyne Cujoh",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/bp191365_comicsense.jpg",
     rating:3,
@@ -151,7 +151,7 @@ export const products = [
     categoryName: "figurine",
   },
   {
-    _id: uuid(),
+    _id: "17",
     title: "Strawhats Logo",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/luffy_logo_comicsense.jpg",
     rating:4.5,
@@ -160,7 +160,7 @@ export const products = [
     categoryName: "stickers",
   },
   {
-    _id: uuid(),
+    _id: "18",
     title: "Zenitsu's Dream",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/02/zenitsu-dream_mock_comicsense-1.jpg",
     rating:5,
@@ -169,7 +169,7 @@ export const products = [
     categoryName: "stickers",
   },
   {
-    _id: uuid(),
+    _id: "19",
     title: "Chika Sticker",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/12/chika_mock_comicsense.jpg",
     rating:1,
@@ -178,7 +178,7 @@ export const products = [
     categoryName: "stickers",
   },
   {
-    _id: uuid(),
+    _id: "20",
     title: "PLUS ULTRA",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/plusultra_comicsense.jpg",
     rating:2,
@@ -187,7 +187,7 @@ export const products = [
     categoryName: "stickers",
   },
   {
-    _id: uuid(),
+    _id: "21",
     title: "Kakashi's Sharingan",
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/kakashi_sharingan_comicsense.jpg",
     rating:4,

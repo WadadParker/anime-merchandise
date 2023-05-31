@@ -157,6 +157,7 @@ body {
 .product-listing-page {
   margin:1rem;
   max-width: 80%;
+  align-items: center;
 }
 
 .products {

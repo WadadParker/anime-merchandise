@@ -5,12 +5,13 @@ import { NavBar } from "../../components/NavBar";
 import { useParams } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import { CartWishlistContext } from "../..";
+import { LoadingSpinner } from "../../components/Loader";
 
 import "./ProductCard.css"
 
 export const ProductCard=()=>
 {
-  const {inCart,addToCart,inWishlist,removeFromWishlist,addToWishlist}=useContext(CartWishlistContext);
+  const {inCart,addToCart,inWishlist,removeFromWishlist,addToWishlist,isLoading}=useContext(CartWishlistContext);
   const {state:{productList}}=useContext(ProductContext);  
   const navigate=useNavigate();  
 
@@ -19,7 +20,8 @@ export const ProductCard=()=>
     return (<>
     <NavBar />
     <div style={{display:"flex",justifyContent:"center"}}>
-        <div className="product-card-container">
+    {isLoading?(<LoadingSpinner/>)
+    :<div className="product-card-container">
         <img src={product?.img} width={300} height={350}/>
         <div className="product-details-container">
             <p>{product?.title}</p>
@@ -39,8 +41,8 @@ export const ProductCard=()=>
             :(<button className="remove-from-wishlist" onClick={()=>removeFromWishlist(product?._id)}>Remove from Wishlist</button>)
         }
             </div>
-        </div>
-    </div>    
+        </div>}
+    </div>   
         </>
     )
 }
