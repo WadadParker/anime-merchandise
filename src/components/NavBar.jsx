@@ -21,7 +21,7 @@ export const NavBar=()=>
             {search !== "" && (
         <div className="search-container">
           {searchedProducts.map(({_id,title,img,price}) => (
-            <li style={{ margin: "1rem" }} key={_id}>
+            <li style={{ margin: "1rem" }} key={_id} onClick={()=>{navigate(`/products/${_id}`);dispatch({type:"SEARCH",payload:''})}}>
               <div className="nav-search-container">
                 <img
                   src={img}

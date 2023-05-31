@@ -12,6 +12,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/09/aot_tiedye_comicsense.jpg",
     rating:3.5,
     price: "849",
+    desc:"Join the Scouts and soar high",
     categoryName: "oversize",
   },
   {
@@ -20,6 +21,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/demonslayer_innosuke_beastbreathing_secondfang_oversizetee_back_listing_hitanshi_comicsense.jpg",
     rating:4,
     price: "900",
+    desc:"Unleash the Beast Breathing within you!",
     categoryName: "oversize",
   },
   {
@@ -28,6 +30,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/dreams_denji2_comicsense.jpg",
     rating:5,
     price: "949",
+    desc:"Will Denji get the Oppai? We don't know, but you can get this shirt for sure",
     categoryName: "oversize",
   },
   {
@@ -36,6 +39,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/05/tokyorevengers_blackdragon_fullsleevetee_listing3_hitanshi-800x1067.jpg",
     rating:4,
     price: "899",
+    desc:"Our hearts are with Toman, but our shirts can be of Black Dragon right?",
     categoryName: "oversize",
   },
   {
@@ -44,6 +48,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/06/anya_oversize_white_ha_comicsense.jpg",
     rating:2,
     price: "849",
+    desc:"Anyaaa, Peanuts ka dai tsukiiii",
     categoryName: "oversize",
   },
   {
@@ -52,6 +57,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/aot_bomber_front_comicsense.jpg",
     rating:5,
     price: "1300",
+    desc:"Warm, comfortable jacket as if you are embraced by a colossol titan",
     categoryName: "winterWear",
   },
   {
@@ -60,6 +66,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/11/draken_bomber_compressed.jpg",
     rating:3.5,
     price: "1400",
+    desc:"Ready to take on a 100 people with Draken's spirit?",
     categoryName: "winterWear",
   },
   {
@@ -68,6 +75,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/one_piece_pirates_bomberjacket_comicsense.jpg",
     rating:4.5,
     price: "1400",
+    desc:"Let your nakama notice you in this sugoi one piece drip",
     categoryName: "winterWear",
   },
   {
@@ -76,6 +84,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/09/itadori_cosplay_hoodief_comicsense.jpg",
     rating:4,
     price: "1400",
+    desc:"Best suited for high-school students or finger eating vessels...",
     categoryName: "winterWear",
   },
   {
@@ -84,6 +93,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/akatsuki_hoodie_front_comicsense.jpg",
     rating:2,
     price: "1500",
+    desc:"Want to declare 5th shinobi war but its cold outside? We've got you covered",
     categoryName: "winterWear",
   },
   {
@@ -92,6 +102,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/closeups7_comicsense.jpg",
     rating:5,
     price: "2299",
+    desc:"Kaminari no kokyu, ichi no kata, heki reki isse!!!",
     categoryName: "figurine",
   },
   {
@@ -100,6 +111,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/bp192805_comicsense.jpg",
     rating:5,
     price: "2299",
+    desc:"Oraewa Monkey D Luffy, Ora Kaizoku oraewa naru!!",
     categoryName: "figurine",
   },
   {
@@ -108,6 +120,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/takemichi5_comicsense-1.jpg",
     rating:5,
     price: "1999",
+    desc:"1st Division Commander, yoroshiku onegaishimasu!!",
     categoryName: "figurine",
   },
   {
@@ -116,6 +129,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/08/L_SFC_comicsense-1.jpg",
     rating:5,
     price: "3200",
+    desc:"If L was in Game of Thrones, he would have finished the entire series in 2 episodes",
     categoryName: "figurine",
   },
   {
@@ -124,6 +138,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/11/deku_comicsense.jpg",
     rating:4.5,
     price: "7999",
+    desc:"If you feel yourself hitting up against your limit remember for what cause you clench your fists... remember why you started down this path,and let that memory carry you beyond your limit",
     categoryName: "figurine",
   },
   {
@@ -132,6 +147,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2023/03/bp191365_comicsense.jpg",
     rating:3,
     price: "2299",
+    desc:"ZA WARUDOOOOOOOO",
     categoryName: "figurine",
   },
   {
@@ -140,6 +156,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/luffy_logo_comicsense.jpg",
     rating:4.5,
     price: "59",
+    desc:"Ready to find to join thier crew?",
     categoryName: "stickers",
   },
   {
@@ -148,6 +165,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2022/02/zenitsu-dream_mock_comicsense-1.jpg",
     rating:5,
     price: "59",
+    desc:"NEZUKO CHANNNNNNNNNNNNN",
     categoryName: "stickers",
   },
   {
@@ -156,6 +174,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/12/chika_mock_comicsense.jpg",
     rating:1,
     price: "59",
+    desc:"I raised that man",
     categoryName: "stickers",
   },
   {
@@ -164,6 +183,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/plusultra_comicsense.jpg",
     rating:2,
     price: "59",
+    desc:"Go Beyond! PLUS ULTRA!!!",
     categoryName: "stickers",
   },
   {
@@ -172,6 +192,7 @@ export const products = [
     img:"https://comicsense.b-cdn.net/wp-content/uploads/2021/03/kakashi_sharingan_comicsense.jpg",
     rating:4,
     price: "59",
+    desc:"This sticker is the best way to enter your crush's heart",
     categoryName: "stickers",
   },
 ];

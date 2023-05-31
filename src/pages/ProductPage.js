@@ -35,7 +35,7 @@ export const ProductPage=()=>
                         <li key={_id}>
                             {inWishlist(_id)?(<i class="fa-solid fa-heart wishlist" onClick={()=>addToWishlist(item)}></i>)
                             :(<i class="fa-solid fa-heart-crack wishlist" onClick={()=>removeFromWishlist(_id)}></i>)}
-                            <img src={img} width={200} height={250}/>
+                            <img src={img} width={200} height={250} onClick={()=>navigate(`/products/${_id}`)}/>
                             <p>{title}</p>
                             <span style={{marginTop:"-0.7rem"}}>Rating: {rating}</span>
                             <strong>Rs {price}</strong>

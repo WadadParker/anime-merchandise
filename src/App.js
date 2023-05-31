@@ -12,7 +12,7 @@ import { ProductPage } from "./pages/ProductPage";
 import {Home} from "./pages/home/Home";
 import { LoginPage } from "./pages/LoginPage";
 import { SignUpPage } from "./pages/SignUpPage";
-import { ProductCard } from "./pages/ProductCard";
+import { ProductCard } from "./pages/productCard/ProductCard";
 import { CartPage } from "./pages/CartPage";
 import { WishListPage } from "./pages/WishlistPage";
 import { AddressPage } from "./pages/addressPage/AddressPage";
