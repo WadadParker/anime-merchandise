@@ -62,7 +62,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-  const {productList,search,slider,categoryCheck,sort}=state;
+  const { productList, search, slider, categoryCheck, sort } = state;
   const getData = async () => {
     try {
       const response = await axios.get("/api/products");
@@ -78,53 +78,47 @@ export const ProductProvider = ({ children }) => {
   }, []);
 
   // Add below code to utils
-    const searchedProducts= productList.filter(({title})=>title.toLowerCase().includes(search.toLowerCase()));
+  const searchedProducts = productList.filter(({ title }) =>
+    title.toLowerCase().includes(search.toLowerCase())
+  );
 
+  const filteredByRating = productList.filter(({ rating }) => rating >= slider);
 
-    const filteredByRating= productList.filter(({rating})=>rating>=slider);
-   
-    const filterByCategory=(category,products)=>
-    {
-        let filteredList=[];
-        const categories=Object.keys(category);
-        const values=Object.values(category);
-        values.map((currentValue,index)=>
-            {
-                if(currentValue)
-                {
-                    let newList=products.filter(({categoryName})=>categoryName===categories[index]);
-                    filteredList=filteredList.concat(newList);
-                }
-            })
-        if(filteredList.length===0)
-            return products;
-        else
-            return filteredList;    
+  const filterByCategory = (category, products) => {
+    let filteredList = [];
+    const categories = Object.keys(category);
+    const values = Object.values(category);
+    values.map((currentValue, index) => {
+      if (currentValue) {
+        let newList = products.filter(
+          ({ categoryName }) => categoryName === categories[index]
+        );
+        filteredList = filteredList.concat(newList);
+      }
+    });
+    if (filteredList.length === 0) return products;
+    else return filteredList;
+  };
+
+  const sortProducts = (sortOrder, products) => {
+    if (sortOrder === "highSort") {
+      return [...products].sort((a, b) => a.price - b.price);
+    } else if (sortOrder === "lowSort") {
+      return [...products].sort((a, b) => b.price - a.price);
+    } else {
+      return products;
     }
+  };
 
-    const sortProducts=(sortOrder,products)=>
-    {
-        if(sortOrder==="highSort")
-        {
-            return [...products].sort((a,b)=>a.price-b.price)
-        }
-        else if(sortOrder==="lowSort")
-        {
-            return [...products].sort((a,b)=>b.price-a.price)
-        }
-        else {
-            return products;
-        }
-    }
+  const filteredByCategory = filterByCategory(categoryCheck, filteredByRating);
 
+  const finalProductList = sortProducts(sort, filteredByCategory);
 
-    const filteredByCategory=filterByCategory(categoryCheck,filteredByRating);
-
-    const finalProductList=sortProducts(sort,filteredByCategory);
-
-    return (
-        <ProductContext.Provider value={{state,dispatch,searchedProducts,finalProductList}}>
-            {children}
-        </ProductContext.Provider>
-    )
-}
+  return (
+    <ProductContext.Provider
+      value={{ state, dispatch, searchedProducts, finalProductList }}
+    >
+      {children}
+    </ProductContext.Provider>
+  );
+};
