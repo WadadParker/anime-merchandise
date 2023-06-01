@@ -136,218 +136,27 @@ body {
   background-color: white;
   list-style: none;
 }
+
+
 /* Filter Bar Styling */
 
-.filter-container {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  padding:1.5rem;
-  width:10rem;
-  font-size: 1.4rem;
-  margin-top:-5rem;
-}
-.filter-container header {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0;
-}
+/* Product Listin Page */
 
-/* Product Listing Page */
-.product-listing-page {
-  margin:1rem;
-  max-width: 80%;
-  align-items: center;
-}
-
-.products {
-  list-style: none;
-  display:flex;
-  flex-wrap: wrap;
-}
-.products li {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
-}
-.go-to-cart {
-  color: white;
-  background-color: rgb(57, 248, 255);
-  border:0 solid;
-  padding:0.5rem;
-  margin: 1rem 0;
-}
-
-.add-to-cart {
-  color: white;
-  background-color: rgb(0, 76, 255);
-  border:0 solid;
-  padding:0.5rem;
-  margin: 1rem 0;
-}
-.remove-from-wishlist {
-  color: white;
-  background-color: rgb(222, 39, 39);
-  border:0 solid;
-  padding:0.5rem;
-  margin: 1rem 0;
-}
-.wishlist {
-  color:red;
-  font-size: 1.8rem;
-  position: absolute;
-  padding:0.5rem;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  /* background-color: rgba(232, 227, 227, 0.991); */
-}
-.wishlist:hover{
-  font-size: 2.4rem;
-  background-color: white;
-  box-shadow: 0 0 33px 2px rgb(0, 0, 0);
-}
 /* Login Page */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  width: fit-content;
-  justify-content: center;
-  text-align: center;
+/* Product Card Page */
 
-  padding: 1rem;
-
-  text-align: left;
-}
-.Main {
+.product-card-container {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  width: 30rem;
-  height: fit-content;
-  border: 1px solid rgb(168, 166, 166);
-  border-radius: 0.2rem;
-  padding: 1rem;
-  margin: 1rem;
-  font-size: 1.5rem;
-}
-.signup {
-  width: 40rem;
-  height: auto;
-}
-.container input {
-  padding: 1rem;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  border: 1px solid rgb(194, 194, 194);
-  border-radius: 0.4rem;
-}
-.Main button {
-  padding: 0.7rem;
-  border: 1px solid transparent;
-  border-radius: 0.3rem;
-  background-color: rgba(16, 171, 243, 0.897);
-  color: white;
-  font-size: 1.3rem;
-}
-.Main a {
-  text-decoration: none;
-  color: rgba(16, 171, 243, 0.897);
-  padding: 0.5rem;
-}
-.body-container {
-  display:flex;
-  justify-content:center; 
-  margin-top:7rem;
-  
-}
-.body-container-signup {
-  display:flex;
-  justify-content:center; 
-}
-.sub-container {
-  display:flex;
-  gap:1rem;
-  justify-content: space-between;
-}
-#confirm-password {
-  margin-right: 50%;
-  width: 20rem;
-}
-#sign-in-button {
-  padding: 0.7rem;
-  border: 1px solid transparent;
-  border-radius: 0.3rem;
-  background-color: rgba(16, 171, 243, 0.897);
-  color: white;
-  font-size: 1.3rem;
-  margin:0 20%;
-}
-.fa-eye,.fa-eye-slash {
-  margin-left: -2rem;
+  flex-direction: row;
+  width: 50rem;
+  height: 20rem;
+  justify-content:space-evenly;
+  margin-top:10rem;
+  padding:2rem 0rem;
+  border:1px solid rgb(205, 205, 205);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 4px 2px rgb(47, 47, 47);
 }
 
 /* Cart Page */
-.cart-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
-
-
-.cart-list-container {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-}
-.cart-item-container img {
-  height: 100%;
-}
-.cart-item-container {
-  display: flex;
-  flex-direction: row;
-  width: 30rem;
-  height: 15rem;
-  justify-content: space-between;
-  margin:1rem;
-  border:1px solid rgb(191, 191, 191);
-  box-shadow: 0 0 5px 2px rgb(62, 62, 62);
-  border-radius: 0.4rem;
-}
-.cart-item-container .fa-trash {
-  align-self: center;
-  font-size: 1.5rem;
-  padding:0 1rem;
-}
-.cart-item-description {
-  display: flex;
-  flex-direction: column;
-}
-.bill-container {
-  display: flex;
-  flex-direction: column;
-  border:1px solid black;
-  box-shadow: 0 0 5px 2px rgb(73, 73, 73);
-  border-radius: 0.5rem;
-  padding:1rem 0.5rem;
-  text-align: left;
-  width: 30rem;
-  height: 50%;
-  font-size: 1.3rem;
-}
-.bill-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.bill-container button {
-  padding:0.7rem;
-  margin:0.5rem 1rem;
-  border:0 solid;
-  border-radius: 0.5rem;
-  background-color: rgb(0, 123, 255);
-  font-size: 1.5rem;
-  color: white;
-}

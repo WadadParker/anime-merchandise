@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
 
 import {ProductContext,AuthContext,CartWishlistContext} from "..";
-
+import "./NavBar.css";
 export const NavBar=()=>
 {
     const {state,dispatch,searchedProducts}=useContext(ProductContext);
