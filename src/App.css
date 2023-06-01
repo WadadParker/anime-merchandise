@@ -5,6 +5,8 @@
 body {
   overflow: overlay;
 }
+/* scrollBar styling */
+
 *::-webkit-scrollbar {
   display: block;
   width: 16px;

@@ -3,6 +3,7 @@ import logo from "./logo.png";
 import {Route,Routes} from "react-router-dom";
 
 import {NavBar} from "./components/navbar/NavBar";
+import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
 
 import { ProductPage } from "./pages/productListing/ProductPage";
@@ -23,8 +24,8 @@ function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/products/:productId" element={<ProductCard />} />
-      <Route path="/cart" element={<CartPage />} />
-      <Route path="/wishlist" element={<WishListPage />} />
+      <Route path="/cart" element={<RequiresAuth><CartPage /></RequiresAuth>} />
+      <Route path="/wishlist" element={<RequiresAuth><WishListPage /></RequiresAuth>} />
       <Route path="/mock-api" element={<Mockman />} />
     </Routes>
 
