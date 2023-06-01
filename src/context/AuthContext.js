@@ -78,6 +78,24 @@ export const AuthProvider=({children})=>
     const passwordMatch=()=>
     { if(newPassword===confirmPassword)return true; return false}
 
+    const checkEmptyFields=()=>
+    {
+        if(firstName===""||lastName===""||newEmail===""||newPassword===""||confirmPassword==="")
+        toast.warn('Please enter all fields', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+        else {
+            signUpHandler();
+        }    
+    }
+
     const signUpHandler=async ()=>
     {   
         if(passwordMatch)
@@ -100,7 +118,6 @@ export const AuthProvider=({children})=>
                 progress: undefined,
                 theme: "colored",
                 });
-            console.log(location?.state?.from?.pathname,"working",response.data);
         }
         }
         catch(error){
@@ -131,10 +148,8 @@ export const AuthProvider=({children})=>
         }  
     }
 
-    
-
     return (
-        <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn, authState, dispatch, loginHandler, signUpHandler}}>
+        <AuthContext.Provider value={{isLoggedIn,setIsLoggedIn, authState, dispatch, loginHandler, checkEmptyFields}}>
             {children}
         </AuthContext.Provider>
     ) 

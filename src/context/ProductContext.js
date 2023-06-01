@@ -62,7 +62,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-
+  const {productList,search,slider,categoryCheck,sort}=state;
   const getData = async () => {
     try {
       const response = await axios.get("/api/products");

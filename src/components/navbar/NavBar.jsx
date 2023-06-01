@@ -2,7 +2,10 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
 
-import {ProductContext,AuthContext,CartWishlistContext} from "..";
+import { ProductContext } from "../../context/ProductContext";
+import { CartWishlistContext } from "../../context/CartWishlistContext";
+import { AuthContext } from "../../context/AuthContext";
+
 import "./NavBar.css";
 export const NavBar=()=>
 {

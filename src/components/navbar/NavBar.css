@@ -13,3 +13,60 @@
     border-radius: 0.4rem;
     border:0px solid;
   }
+  .NavBar {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(230, 230, 230);
+    padding:1rem;
+    position: relative;
+  }
+  .NavBar .fa-solid {
+    margin:1rem;
+    font-size: 1.4rem;
+  }
+  .NavBar input {
+    border-radius: 0.4rem;
+    border:0px solid;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    width: 35rem;
+  }
+  .nav-container button {
+    border:0;
+    padding:0.5rem 1rem;
+    color: white;
+    background-color: black;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    margin-left:1rem;
+    margin-right:1rem ;
+  }
+  .nav-search-container{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .nav-sub-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-container {
+    width: 33rem;
+    max-height: 40rem;
+    padding: 1rem;
+    z-index: 10000;
+    position: absolute;
+    margin-top: 4rem;
+    background-color: var(--white-color);
+    display: flex;
+    flex-direction: column;
+    grid-gap: 1.5rem;
+    gap: 1.5rem;
+    overflow-y: scroll;
+    background-color: white;
+    list-style: none;
+  }

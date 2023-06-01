@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { useNavigate } from "react-router";
 
-import { NavBar } from "../../components/NavBar";
+import { NavBar } from "../../components/navbar/NavBar";
 import { useParams } from "react-router";
 import { ProductContext } from "../../context/ProductContext";
 import { CartWishlistContext } from "../..";

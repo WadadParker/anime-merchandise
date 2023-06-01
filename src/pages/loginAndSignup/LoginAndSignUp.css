@@ -1,51 +1,80 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 15rem;
-    justify-content: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  text-align: center;
+
+  padding: 1rem;
+
+  text-align: left;
+}
+.Main {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 30rem;
+  height: fit-content;
+  border: 1px solid rgb(168, 166, 166);
+  border-radius: 0.2rem;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
+.signup {
+  width: 40rem;
+  height: auto;
+}
+.container input {
+  padding: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgb(194, 194, 194);
+  border-radius: 0.4rem;
+}
+.Main button {
+  padding: 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  background-color: rgba(16, 171, 243, 0.897);
+  color: white;
+  font-size: 1.3rem;
+}
+.Main a {
+  text-decoration: none;
+  color: rgba(16, 171, 243, 0.897);
+  padding: 0.5rem;
+}
+.body-container {
+  display:flex;
+  justify-content:center; 
+  margin-top:7rem;
   
-    padding: 1rem;
-  
-    text-align: left;
-  }
-  .Main {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid black;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 30rem;
-    height: 25rem;
-    border: 1px solid rgb(168, 166, 166);
-    border-radius: 0.2rem;
-    padding: 1rem;
-    margin: 1rem;
-  }
-  
-  .container input {
-    padding: 1rem 0;
-    margin-top: 0.5rem;
-    margin-bottom: 2rem;
-    border: 1px solid rgb(194, 194, 194);
-    border-radius: 0.4rem;
-  }
-  .Main button {
-    padding: 0.7rem;
-    border: 1px solid transparent;
-    border-radius: 0.3rem;
-    background-color: rgba(16, 171, 243, 0.897);
-    color: white;
-    font-size: 1.3rem;
-  }
-  .Main a {
-    text-decoration: none;
-    color: rgba(16, 171, 243, 0.897);
-    padding: 0.5rem;
-  }
-  .body-container {
-    display:flex;
-    justify-content:center; 
-    margin-top:10rem;
-  }
+}
+.body-container-signup {
+  display:flex;
+  justify-content:center; 
+}
+.sub-container {
+  display:flex;
+  gap:1rem;
+  justify-content: space-between;
+}
+#confirm-password {
+  margin-right: 50%;
+  width: 20rem;
+}
+#sign-in-button {
+  padding: 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 0.3rem;
+  background-color: rgba(16, 171, 243, 0.897);
+  color: white;
+  font-size: 1.3rem;
+  margin:0 20%;
+}
+.fa-eye,.fa-eye-slash {
+  margin-left: -2rem;
+}

@@ -3,7 +3,7 @@ import { useContext } from "react";
 
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { AddressContext } from "./AddressContext";
-import { NavBar } from "../../components/NavBar";
+import { NavBar } from "../../components/navbar/NavBar";
 import { AddressForm } from "./AddressForm";
 
 
