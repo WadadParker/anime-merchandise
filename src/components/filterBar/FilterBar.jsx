@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
-import { ProductContext } from "..";
+import { ProductContext } from "../..";
+import "./FilterBar.css";
 
 export const FilterBar=()=>
 {

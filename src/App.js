@@ -2,19 +2,19 @@ import "./App.css";
 import logo from "./logo.png";
 import {Route,Routes} from "react-router-dom";
 
-import {NavBar} from "./components/NavBar";
+import {NavBar} from "./components/navbar/NavBar";
 import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { ProductPage } from "./pages/ProductPage";
+import { ProductPage } from "./pages/productListing/ProductPage";
 import {Home} from "./pages/Home";
-import { LoginPage } from "./pages/LoginPage";
-import { SignUpPage } from "./pages/SignUpPage";
+import { LoginPage } from "./pages/loginAndSignup/LoginPage";
+import { SignUpPage } from "./pages/loginAndSignup/SignUpPage";
 import { ProductCard } from "./pages/ProductCard";
-import { CartPage } from "./pages/CartPage";
-import { WishListPage } from "./pages/WishlistPage";
+import { CartPage } from "./pages/cartAndWishlistPage/CartPage";
+import { WishListPage } from "./pages/cartAndWishlistPage/WishlistPage";
 
 function App() {
   return (
