@@ -1,0 +1,14 @@
+.filter-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    padding:1.5rem;
+    width:10rem;
+    font-size: 1.4rem;
+    margin-top:-5rem;
+  }
+  .filter-container header {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+  }
