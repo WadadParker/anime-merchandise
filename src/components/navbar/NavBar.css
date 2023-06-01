@@ -1,0 +1,15 @@
+.NavBar {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(230, 230, 230);
+    padding:1rem;
+  }
+  .NavBar .fa-solid {
+    margin:1rem;
+  }
+  .NavBar input {
+    width: 15rem;
+    border-radius: 0.4rem;
+    border:0px solid;
+  }
