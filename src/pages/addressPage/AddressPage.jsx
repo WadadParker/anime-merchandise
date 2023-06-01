@@ -58,7 +58,7 @@ export const AddressPage = () => {
                 <p style={{flexGrow:"1"}}>Total Price</p>
                 <p><b>{totalPrice}</b></p>
             </li>
-            <button>Checkout</button>
+            <button>Place Order</button>
         </div>
         </div>
     </>

@@ -58,7 +58,7 @@ export const CartPage=()=>
                 <p style={{flexGrow:"1"}}>Total Price</p>
                 <p><b>{totalPrice}</b></p>
             </li>
-            <button onClick={()=>navigate("/checkout")}>Place Order</button>
+            <button onClick={()=>navigate("/checkout")}>Checkout</button>
         </div>
     </div></>}
     </>

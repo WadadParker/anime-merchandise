@@ -1,5 +1,5 @@
 import {createContext,useState,useReducer} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -45,7 +45,7 @@ export const AuthProvider=({children})=>
             localStorage.setItem("user", (response.data.foundUser));
             localStorage.setItem("token", (response.data.encodedToken));
             setIsLoggedIn(true);
-            navigate(location?.state?.from?.pathname);
+            navigate(-1);
             toast.success('Login Successfull, Dattebayo!', {
                 position: "top-right",
                 autoClose: 2000,
