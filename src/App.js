@@ -15,6 +15,7 @@ import { SignUpPage } from "./pages/loginAndSignup/SignUpPage";
 import { ProductCard } from "./pages/ProductCard";
 import { CartPage } from "./pages/cartAndWishlistPage/CartPage";
 import { WishListPage } from "./pages/cartAndWishlistPage/WishlistPage";
+import { AddressPage } from "./pages/addressPage/AddressPage";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
       <Route path="/cart" element={<RequiresAuth><CartPage /></RequiresAuth>} />
       <Route path="/wishlist" element={<RequiresAuth><WishListPage /></RequiresAuth>} />
       <Route path="/mock-api" element={<Mockman />} />
+      <Route path="/checkout" element={<RequiresAuth><AddressPage /></RequiresAuth>} />
     </Routes>
 
     </div>
