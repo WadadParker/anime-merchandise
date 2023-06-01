@@ -39,17 +39,35 @@ export const AuthProvider=({children})=>
         const response=await axios.post("/api/auth/login",{email,password})
         if(response.status===200)
         {
-            localStorage.setItem("user", JSON.stringify(response.data.foundUser));
-            localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
+            localStorage.setItem("user", (response.data.foundUser));
+            localStorage.setItem("token", (response.data.encodedToken));
             setIsLoggedIn(true);
             navigate(location?.state?.from?.pathname);
-            toast.success("Login Succesfull, Dattebayo!", {autoClose:2000});
+            toast.success('Login Successfull, Dattebayo!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(location?.state?.from?.pathname);
         }
         }
         catch(error){
             console.log(error);
-            toast.error("Please check your credentials");
+            toast.error('Please check your credentials!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
         }
     }
 
@@ -64,21 +82,48 @@ export const AuthProvider=({children})=>
         const response=await axios.post("/api/auth/signup",{newEmail,newPassword,firstName,lastName})
         if(response.status===201)
         {
-            localStorage.setItem("user", JSON.stringify(response.data.createdUser));
-            localStorage.setItem("token", JSON.stringify(response.data.encodedToken));
+            localStorage.setItem("user", response.data.createdUser);
+            localStorage.setItem("token", response.data.encodedToken);
             setIsLoggedIn(true);
             navigate(-2);
-            toast.success("Sign Up Succesfull, Dattebayo!", {autoClose:2000})
+            toast.success('Signup Successfull, Dattebayo!', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                });
             console.log(location?.state?.from?.pathname,"working",response.data);
         }
         }
         catch(error){
             console.log(error);
-            toast.error("Account already exists");
+            toast.error('Account already exists', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }
     }
         else {
-            toast.error("Passwords do not match");
+            toast.warn('Passwords do not match', {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
         }  
     }
 
