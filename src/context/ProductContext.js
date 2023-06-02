@@ -1,8 +1,6 @@
 import { useState, useEffect, createContext, useReducer } from "react";
 import axios from "axios";
 
-// import {products} from "../backend/db/products";
-
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -77,7 +75,6 @@ export const ProductProvider = ({ children }) => {
     getData();
   }, []);
 
-  // Add below code to utils
   const searchedProducts = productList.filter(({ title }) =>
     title.toLowerCase().includes(search.toLowerCase())
   );

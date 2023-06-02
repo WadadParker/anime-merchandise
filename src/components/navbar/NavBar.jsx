@@ -16,8 +16,7 @@ export const NavBar = () => {
   const navigate = useNavigate();
   return (
     <nav className="NavBar">
-      <Link to="/">AnimeCon</Link>
-      {/* <label><i class="fa-solid fa-magnifying-glass"></i></label> */}
+      <Link to="/" style={{textDecoration:"none",color:"black",fontSize:"2rem",padding:"0 2rem"}}>AnimeCon Hubli</Link>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <input
           type="search"
@@ -42,7 +41,7 @@ export const NavBar = () => {
                   <img src={img} width={200} height={250} alt={""} />
                   <div className="nav-sub-container">
                     <strong>{title}</strong>
-                    <p>Go to this item {price}</p>
+                    <p>Rs {price}</p>
                   </div>
                 </div>
               </li>
