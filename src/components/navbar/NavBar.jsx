@@ -50,6 +50,7 @@ export const NavBar = () => {
         )}
       </div>
       <div className="nav-container">
+        <button id="explore-button" onClick={()=>navigate("/products")}>Products</button>
         <i class="fa-solid fa-heart" onClick={() => navigate("/wishlist")}></i>
         <i
           class="fa-solid fa-cart-shopping"

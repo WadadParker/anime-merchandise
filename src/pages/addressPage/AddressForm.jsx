@@ -163,7 +163,7 @@ export const AddressForm = () => {
               className="next"
               onClick={() => dispatch({ type: "RANDOM_ADDRESS" })}
             >
-              Random Data
+              Dummy Data
             </button>
             <button
               className="cancel"

@@ -76,7 +76,7 @@ export const AddressPage = () => {
             </li>
           </ul>
         </div>
-        <div className="bill-container">
+        <div className="bill-container address">
           <strong style={{ fontSize: "1.5rem" }}>Billing Information</strong>
           {cartList?.map((item) => {
             const { _id, title, price, qty } = item;

@@ -5,11 +5,13 @@ import { ProductContext } from "../../context/ProductContext";
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
 import { FilterBar } from "../../components/filterBar/FilterBar";
+import { AuthContext } from "../../context/AuthContext";
 
 import "./ProductPage.css";
 
 export const ProductPage = () => {
   const { finalProductList } = useContext(ProductContext);
+  const {isLoggedIn}=useContext(AuthContext);
   const navigate = useNavigate();
   const {
     addToCart,
@@ -21,9 +23,26 @@ export const ProductPage = () => {
   } = useContext(CartWishlistContext);
 
   const clickHandler = (cartItem) => {
+    if(isLoggedIn)
+    {
     if (!inCart(cartItem._id)) incrementQuantity(cartItem._id);
     else addToCart(cartItem);
+    }
+    else {
+      navigate("/login");
+    }
   };
+
+  const wishListCLickHandler=(item)=>
+  {
+    if(isLoggedIn)
+    {
+    addToWishlist(item)
+    }
+    else {
+      navigate("/login");
+    }
+  }
 
   return (
     <>
@@ -40,7 +59,7 @@ export const ProductPage = () => {
                   {inWishlist(_id) ? (
                     <i
                       class="fa-solid fa-heart wishlist"
-                      onClick={() => addToWishlist(item)}
+                      onClick={() => wishListCLickHandler(item)}
                     ></i>
                   ) : (
                     <i
