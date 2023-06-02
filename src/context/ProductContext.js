@@ -1,8 +1,6 @@
 import { useState, useEffect, createContext, useReducer } from "react";
 import axios from "axios";
 
-// import {products} from "../backend/db/products";
-
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
@@ -62,7 +60,7 @@ export const ProductProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-
+  const { productList, search, slider, categoryCheck, sort } = state;
   const getData = async () => {
     try {
       const response = await axios.get("/api/products");
@@ -77,17 +75,11 @@ export const ProductProvider = ({ children }) => {
     getData();
   }, []);
 
-  // Add below code to utils
-
-  const { slider, search, categoryCheck, sort, productList } = state;
-
   const searchedProducts = productList.filter(({ title }) =>
     title.toLowerCase().includes(search.toLowerCase())
   );
 
-  const filteredByRating = searchedProducts.filter(
-    ({ rating }) => rating >= slider
-  );
+  const filteredByRating = productList.filter(({ rating }) => rating >= slider);
 
   const filterByCategory = (category, products) => {
     let filteredList = [];
@@ -120,7 +112,9 @@ export const ProductProvider = ({ children }) => {
   const finalProductList = sortProducts(sort, filteredByCategory);
 
   return (
-    <ProductContext.Provider value={{ state, dispatch, finalProductList }}>
+    <ProductContext.Provider
+      value={{ state, dispatch, searchedProducts, finalProductList }}
+    >
       {children}
     </ProductContext.Provider>
   );
