@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 
 export const LoginPage = () => {
-  const { getCart } = useContext(CartWishlistContext);
+  const { getCart, getWishlist } = useContext(CartWishlistContext);
   const { authState, dispatch, loginHandler } = useContext(AuthContext);
   const { email, password, passwordIcon } = authState;
 
@@ -29,7 +29,7 @@ export const LoginPage = () => {
             </b>
             <input
               name="inputOne"
-              placeholder="wadadparker@gmail.com"
+              placeholder="Enter Email"
               value={email}
               onChange={(e) => changeHandlerForEmail(e.target.value)}
             ></input>
@@ -39,25 +39,36 @@ export const LoginPage = () => {
             <div>
               <input
                 type={passwordIcon ? "password" : "text"}
-                placeholder="wadadparker"
+                placeholder="Enter Password"
                 value={password}
                 onChange={(e) => changeHandlerForPassword(e.target.value)}
               ></input>
               {passwordIcon ? (
                 <i
-                  class="fa-solid fa-eye"
+                  class="fa-solid fa-eye-slash"
                   onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
                 ></i>
               ) : (
                 <i
-                  class="fa-solid fa-eye-slash"
+                  class="fa-solid fa-eye"
                   onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
                 ></i>
               )}
             </div>
-            <button onClick={() => loginHandler(getCart)}>Login</button>
+            <button onClick={() => loginHandler(getCart, getWishlist)}>
+              Login
+            </button>
+            <button
+              style={{ marginTop: "1rem" }}
+              onClick={() => {
+                dispatch({ type: "EMAIL", payload: "wadadparker@gmail.com" });
+                dispatch({ type: "PASSWORD", payload: "ilovejaanu" });
+              }}
+            >
+              Enter Guest Credentials
+            </button>
           </div>
-          <a href="">Forgot Password?</a>
+          <span href="">Forgot Password?</span>
           <Link to="/signup">Create new Account</Link>
         </div>
       </div>

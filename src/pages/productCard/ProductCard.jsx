@@ -16,10 +16,9 @@ export const ProductCard = () => {
     inWishlist,
     removeFromWishlist,
     addToWishlist,
-    isLoading,
   } = useContext(CartWishlistContext);
   const {
-    state: { productList },
+    state: { productList,isProductLoading },
   } = useContext(ProductContext);
   const navigate = useNavigate();
 
@@ -29,7 +28,7 @@ export const ProductCard = () => {
     <>
       <NavBar />
       <div style={{ display: "flex", justifyContent: "center" }}>
-        {isLoading ? (
+        {isProductLoading ? (
           <LoadingSpinner />
         ) : (
           <div className="product-card-container">

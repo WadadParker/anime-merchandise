@@ -6,11 +6,12 @@ import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
 import { FilterBar } from "../../components/filterBar/FilterBar";
 import { AuthContext } from "../../context/AuthContext";
+import { LoadingSpinner } from "../../components/Loader";
 
 import "./ProductPage.css";
 
 export const ProductPage = () => {
-  const { finalProductList } = useContext(ProductContext);
+  const { finalProductList,isProductLoading } = useContext(ProductContext);
   const {isLoggedIn}=useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -50,7 +51,8 @@ export const ProductPage = () => {
       <h1>All Products</h1>
       <div style={{ display: "flex" }}>
         <FilterBar />
-        <div className="product-listing-page">
+        {isProductLoading?<LoadingSpinner />
+        :(<div className="product-listing-page">
           <ul className="products">
             {finalProductList?.map((item) => {
               const { _id, title, img, rating, price } = item;
@@ -73,8 +75,10 @@ export const ProductPage = () => {
                     height={250}
                     onClick={() => navigate(`/products/${_id}`)}
                   />
-                  <p>{title}</p>
-                  <span style={{ marginTop: "-0.7rem" }}>Rating: {rating}</span>
+                  <div className="title-rating-container">
+                    <p id="product-title">{title}</p>
+                    <p><i class="fa-solid fa-star"></i> {rating}</p>
+                  </div>
                   <strong>Rs {price}</strong>
                   {inCart(_id) ? (
                     <button
@@ -95,7 +99,7 @@ export const ProductPage = () => {
               );
             })}
           </ul>
-        </div>
+        </div>)}
       </div>
     </>
   );

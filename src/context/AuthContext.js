@@ -21,12 +21,14 @@ export const AuthProvider = ({ children }) => {
         return { ...auth, signUp: { ...auth.signUp, [inputField]: payload } };
       case "TOGGLE_PASSWORD":
         return { ...auth, passwordIcon: !auth.passwordIcon };
+      case "TOGGLE_CONFIRM_PASSWORD":
+        return { ...auth, confirmPasswordIcon: !auth.confirmPasswordIcon };
     }
   };
 
   const initialState = {
-    email: "wadadparker@gmail.com",
-    password: "wadadparker",
+    email: "",
+    password: "",
     signUp: {
       firstName: "",
       lastName: "",
@@ -34,7 +36,8 @@ export const AuthProvider = ({ children }) => {
       password: "",
       confirmPassword: "",
     },
-    passwordIcon: false,
+    passwordIcon: true,
+    confirmPasswordIcon: true,
   };
   const [authState, dispatch] = useReducer(AuthReducer, initialState);
   const {
@@ -49,7 +52,7 @@ export const AuthProvider = ({ children }) => {
     },
   } = authState;
 
-  const loginHandler = async (getCart) => {
+  const loginHandler = async (getCart, getWishlist) => {
     try {
       const response = await axios.post("/api/auth/login", { email, password });
       if (response.status === 200) {
@@ -68,6 +71,7 @@ export const AuthProvider = ({ children }) => {
           theme: "colored",
         });
         getCart();
+        getWishlist();
         console.log(location?.state?.from?.pathname);
       }
     } catch (error) {
@@ -109,16 +113,17 @@ export const AuthProvider = ({ children }) => {
         theme: "light",
       });
     else {
-      signUpHandler();
+      signUpHandler(newEmail, newPassword);
     }
   };
 
-  const signUpHandler = async () => {
-    if (passwordMatch) {
+  const signUpHandler = async (email, password) => {
+    console.log(email, "This is signup email");
+    if (passwordMatch()) {
       try {
         const response = await axios.post("/api/auth/signup", {
-          newEmail,
-          newPassword,
+          email,
+          password,
           firstName,
           lastName,
         });
