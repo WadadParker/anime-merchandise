@@ -99,9 +99,9 @@ export const ProductProvider = ({ children }) => {
   };
 
   const sortProducts = (sortOrder, products) => {
-    if (sortOrder === "highSort") {
+    if (sortOrder === "lowSort") {
       return [...products].sort((a, b) => a.price - b.price);
-    } else if (sortOrder === "lowSort") {
+    } else if (sortOrder === "highSort") {
       return [...products].sort((a, b) => b.price - a.price);
     } else {
       return products;

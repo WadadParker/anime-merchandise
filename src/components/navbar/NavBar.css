@@ -57,6 +57,9 @@
     background-color: white;
     list-style: none;
   }
+  .search-container li {
+    cursor: pointer;
+  }
   #explore-button {
    color: black;
    background-color: transparent;

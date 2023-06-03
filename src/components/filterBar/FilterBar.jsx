@@ -25,15 +25,18 @@ export const FilterBar = () => {
           Clear
         </u>
       </header>
+      <br />
       <strong>Rating</strong>
+      <label htmlFor="rating" className="rating-label"><span>1</span><span>5</span></label>
       <input
+        id="rating"
         type="range"
         min={0}
         max={5}
         value={slider}
         onChange={(e) => dispatch({ type: "SLIDER", payload: e.target.value })}
       ></input>
-
+      <br />
       <strong>Category</strong>
       <div className="category-container" style={{ margin: "1rem 0" }}>
         <input
@@ -41,49 +44,55 @@ export const FilterBar = () => {
           checked={oversize}
           onChange={(e) => changeHandler(e.target.value)}
           value="oversize"
+          id="oversize"
         />
-        <label>Oversized Tees</label>
+        <label htmlFor="oversize">Oversized Tee</label>
         <br />
         <input
           type="checkbox"
           checked={winterWear}
           onChange={(e) => changeHandler(e.target.value)}
           value="winterWear"
+          id="winterWear"
         />
-        <label>Winter Wear</label>
+        <label htmlFor="winterWear">Winter Wear</label>
         <br />
         <input
           type="checkbox"
           checked={figurine}
           onChange={(e) => changeHandler(e.target.value)}
           value="figurine"
+          id="figurine"
         />
-        <label>Figurines</label>
+        <label htmlFor="figurine">Figurines</label>
         <br />
         <input
           type="checkbox"
           checked={stickers}
           onChange={(e) => changeHandler(e.target.value)}
           value="stickers"
+          id="stickers"
         />
-        <label>Stickers</label>
+        <label htmlFor="stickers">Stickers</label>
       </div>
-
+      <br />
       <strong>Price</strong>
       <div className="sort-container">
         <input
-          type="radio"
-          name="sort"
-          onChange={() => dispatch({ type: "SORT", payload: "highSort" })}
-        />
-        <label for="sort">Sort Low to High</label>
-        <br />
-        <input
+          id="lowSort"
           type="radio"
           name="sort"
           onChange={() => dispatch({ type: "SORT", payload: "lowSort" })}
         />
-        <label for="sort">Sort High to Low</label>
+        <label htmlFor="lowSort">Sort Low to High</label>
+        <br />
+        <input
+          id="highSort"
+          type="radio"
+          name="sort"
+          onChange={() => dispatch({ type: "SORT", payload: "highSort" })}
+        />
+        <label htmlFor="highSort">Sort High to Low</label>
       </div>
     </div>
   );

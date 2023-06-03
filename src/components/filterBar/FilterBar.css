@@ -12,3 +12,10 @@
     justify-content: space-between;
     margin: 1rem 0;
   }
+  .filter-container input,.filter-container label {
+    cursor: pointer;
+  }
+  .rating-label {
+    display: flex;
+    justify-content: space-between;
+  }

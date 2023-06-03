@@ -75,8 +75,10 @@ export const ProductPage = () => {
                     height={250}
                     onClick={() => navigate(`/products/${_id}`)}
                   />
-                  <p>{title}</p>
-                  <span style={{ marginTop: "-0.7rem" }}>Rating: {rating}</span>
+                  <div className="title-rating-container">
+                    <p id="product-title">{title}</p>
+                    <p><i class="fa-solid fa-star"></i> {rating}</p>
+                  </div>
                   <strong>Rs {price}</strong>
                   {inCart(_id) ? (
                     <button
