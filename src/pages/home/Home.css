@@ -67,6 +67,7 @@
     transition: 500ms;
     z-index: 999;
     box-shadow: 0 0 9px 6px rgb(50, 49, 49);
+    cursor: pointer;
     
 }
 .image-element-container {

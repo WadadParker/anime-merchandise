@@ -76,14 +76,14 @@ export const FilterBar = () => {
           name="sort"
           onChange={() => dispatch({ type: "SORT", payload: "highSort" })}
         />
-        <label for="sort">Sort High to Low</label>
+        <label for="sort">Sort Low to High</label>
         <br />
         <input
           type="radio"
           name="sort"
           onChange={() => dispatch({ type: "SORT", payload: "lowSort" })}
         />
-        <label for="sort">Sort Low to High</label>
+        <label for="sort">Sort High to Low</label>
       </div>
     </div>
   );

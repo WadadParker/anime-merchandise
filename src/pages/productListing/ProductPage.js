@@ -6,11 +6,12 @@ import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
 import { FilterBar } from "../../components/filterBar/FilterBar";
 import { AuthContext } from "../../context/AuthContext";
+import { LoadingSpinner } from "../../components/Loader";
 
 import "./ProductPage.css";
 
 export const ProductPage = () => {
-  const { finalProductList } = useContext(ProductContext);
+  const { finalProductList,isProductLoading } = useContext(ProductContext);
   const {isLoggedIn}=useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -50,7 +51,8 @@ export const ProductPage = () => {
       <h1>All Products</h1>
       <div style={{ display: "flex" }}>
         <FilterBar />
-        <div className="product-listing-page">
+        {isProductLoading?<LoadingSpinner />
+        :(<div className="product-listing-page">
           <ul className="products">
             {finalProductList?.map((item) => {
               const { _id, title, img, rating, price } = item;
@@ -95,7 +97,7 @@ export const ProductPage = () => {
               );
             })}
           </ul>
-        </div>
+        </div>)}
       </div>
     </>
   );

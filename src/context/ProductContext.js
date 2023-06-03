@@ -7,7 +7,7 @@ export const ProductProvider = ({ children }) => {
   const productReducer = (product, { type, payload }) => {
     switch (type) {
       case "INITIAL_VALUE":
-        return { ...product, productList: payload };
+        return { ...product, productList: payload,isProductLoading:false };
 
       case "SLIDER":
         return { ...product, slider: payload };
@@ -57,10 +57,11 @@ export const ProductProvider = ({ children }) => {
     },
     sort: "",
     productList: [],
+    isProductLoading:true,
   };
 
   const [state, dispatch] = useReducer(productReducer, initialState);
-  const { productList, search, slider, categoryCheck, sort } = state;
+  const { productList, search, slider, categoryCheck, sort,isProductLoading } = state;
   const getData = async () => {
     try {
       const response = await axios.get("/api/products");
@@ -113,7 +114,7 @@ export const ProductProvider = ({ children }) => {
 
   return (
     <ProductContext.Provider
-      value={{ state, dispatch, searchedProducts, finalProductList }}
+      value={{ state, dispatch, searchedProducts, finalProductList,isProductLoading }}
     >
       {children}
     </ProductContext.Provider>
