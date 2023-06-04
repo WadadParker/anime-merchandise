@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
+import { EmptyCart } from "../../components/EmptyCart";
 
 export const CartPage = () => {
   const {
@@ -22,7 +23,8 @@ export const CartPage = () => {
     <>
       <NavBar />
       <h1>My Cart ({cartList.length})</h1>
-      <div className="cart-container">
+      {cartList.length===0?<EmptyCart />
+      :(<div className="cart-container">
         <ul className="cart-list-container">
           {cartList.map((item) => {
             const { _id, title, img, rating, qty, price } = item;
@@ -93,7 +95,7 @@ export const CartPage = () => {
           </li>
           <button onClick={() => navigate("/checkout")}>Place Order</button>
         </div>
-      </div>
+      </div>)}
     </>
   );
 };

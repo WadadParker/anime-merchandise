@@ -8,7 +8,6 @@ export const CartWishlistProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const encodedToken = localStorage.getItem("token");
-  console.log(encodedToken);
   const cartAndWishlistreducer = (list, { type, payload }) => {
     switch (type) {
       case "CART":
@@ -44,9 +43,29 @@ export const CartWishlistProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => getCart(), []);
+  const getWishlist = async () => {
+    const encodedToken = localStorage.getItem("token");
+    try {
+      if (encodedToken !== "") {
+        const response = await axios.get("/api/user/wishlist", {
+          headers: { authorization: encodedToken },
+        });
+        if (response.status === 200) {
+          dispatch({ type: "WISHLIST", payload: response.data.cart });
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getCart();
+    getWishlist();
+  }, []);
 
   const addToCart = async (item) => {
+    const encodedToken = localStorage.getItem("token");
     try {
       const response = await axios.post(
         "/api/user/cart",
@@ -152,6 +171,7 @@ export const CartWishlistProvider = ({ children }) => {
   );
 
   const addToWishlist = async (item) => {
+    const encodedToken = localStorage.getItem("token");
     try {
       const response = await axios.post(
         "/api/user/wishlist",
@@ -223,6 +243,7 @@ export const CartWishlistProvider = ({ children }) => {
       theme: "colored",
     });
     dispatch({ type: "CART", payload: [] });
+    dispatch({ type: "WISHLIST", payload: [] });
   };
   return (
     <CartWishlistContext.Provider

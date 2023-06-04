@@ -16,7 +16,7 @@ export const NavBar = () => {
   const navigate = useNavigate();
   return (
     <nav className="NavBar">
-      <Link to="/" style={{textDecoration:"none",color:"black",fontSize:"2rem",padding:"0 2rem"}}>AnimeCon Hubli</Link>
+      <Link to="/" style={{textDecoration:"none",color:"black",fontSize:"2rem",padding:"0 2rem"}} onClick={()=>dispatch({type:"CLEAR_FILTERS"})}>AnimeCon Hubli</Link>
       <div style={{ display: "flex", flexDirection: "column" }}>
         <input
           type="search"

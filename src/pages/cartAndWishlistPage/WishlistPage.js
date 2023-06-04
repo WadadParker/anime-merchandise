@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
-import { useNavigate } from "react-router";
+import { EmptyCart } from "../../components/EmptyCart";
 
 import "./CartAndWishlistPage.css";
 
@@ -10,7 +10,6 @@ export const WishListPage = () => {
   const { state, inCart, addToCart, removeFromWishlist, incrementQuantity } =
     useContext(CartWishlistContext);
   const { wishlist } = state;
-  const navigate = useNavigate();
 
   const clickHandler = (id, cartItem) => {
     if (inCart(id)) {
@@ -24,7 +23,8 @@ export const WishListPage = () => {
       <NavBar />
       <div>
         <h1>My WishList({wishlist.length})</h1>
-        <ul className="products">
+        {wishlist.length===0?<EmptyCart />
+        :(<ul className="products">
           {wishlist?.map((item) => {
             const { _id, title, img, price } = item;
             return (
@@ -36,7 +36,7 @@ export const WishListPage = () => {
                   className="add-to-cart"
                   onClick={() => clickHandler(_id, item)}
                 >
-                  Add to Cart
+                  {inCart(_id)?"Add to Cart":"Add to Cart +"}
                 </button>
                 <button
                   className="remove-from-wishlist"
@@ -47,7 +47,7 @@ export const WishListPage = () => {
               </li>
             );
           })}
-        </ul>
+        </ul>)}
       </div>
     </>
   );

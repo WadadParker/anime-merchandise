@@ -10,6 +10,7 @@ export const SignUpPage = () => {
   const {
     signUp: { firstName, lastName, email, password, confirmPassword },
     passwordIcon,
+    confirmPasswordIcon,
   } = authState;
   return (
     <>
@@ -20,7 +21,7 @@ export const SignUpPage = () => {
           <div className="container">
             <div className="sub-container">
               <b>
-                <label for="first-name">First Name: </label>
+                <label htmlFor="first-name">First Name: </label>
               </b>
               <input
                 id="first-name"
@@ -28,7 +29,7 @@ export const SignUpPage = () => {
                 onChange={(e) =>
                   dispatch({
                     type: "SIGN_UP",
-                    paylod: e.target.value,
+                    payload: e.target.value,
                     inputField: "firstName",
                   })
                 }
@@ -42,7 +43,7 @@ export const SignUpPage = () => {
                 onChange={(e) =>
                   dispatch({
                     type: "SIGN_UP",
-                    paylod: e.target.value,
+                    payload: e.target.value,
                     inputField: "lastName",
                   })
                 }
@@ -59,7 +60,7 @@ export const SignUpPage = () => {
                 onChange={(e) =>
                   dispatch({
                     type: "SIGN_UP",
-                    paylod: e.target.value,
+                    payload: e.target.value,
                     inputField: "email",
                   })
                 }
@@ -75,19 +76,19 @@ export const SignUpPage = () => {
                   onChange={(e) =>
                     dispatch({
                       type: "SIGN_UP",
-                      paylod: e.target.value,
+                      payload: e.target.value,
                       inputField: "password",
                     })
                   }
                 ></input>
                 {passwordIcon ? (
                   <i
-                    class="fa-solid fa-eye"
+                    class="fa-solid fa-eye-slash"
                     onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
                   ></i>
                 ) : (
                   <i
-                    class="fa-solid fa-eye-slash"
+                    class="fa-solid fa-eye"
                     onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
                   ></i>
                 )}
@@ -99,32 +100,32 @@ export const SignUpPage = () => {
             </b>
             <div>
               <input
-                type={passwordIcon ? "password" : "text"}
+                type={confirmPasswordIcon ? "password" : "text"}
                 id="confirm-password"
                 value={confirmPassword}
                 onChange={(e) =>
                   dispatch({
                     type: "SIGN_UP",
-                    paylod: e.target.value,
+                    payload: e.target.value,
                     inputField: "confirmPassword",
                   })
                 }
               ></input>
-              {passwordIcon ? (
-                <i
-                  class="fa-solid fa-eye"
-                  style={{ marginLeft: "-22rem" }}
-                  onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
-                ></i>
-              ) : (
+              {confirmPasswordIcon ? (
                 <i
                   class="fa-solid fa-eye-slash"
                   style={{ marginLeft: "-22rem" }}
-                  onClick={() => dispatch({ type: "TOGGLE_PASSWORD" })}
+                  onClick={() => dispatch({ type: "TOGGLE_CONFIRM_PASSWORD" })}
+                ></i>
+              ) : (
+                <i
+                  class="fa-solid fa-eye"
+                  style={{ marginLeft: "-22rem" }}
+                  onClick={() => dispatch({ type: "TOGGLE_CONFIRM_PASSWORD" })}
                 ></i>
               )}
             </div>
-            <button id="sign-in-button" onClick={checkEmptyFields}>
+            <button id="sign-in-button" onClick={() => checkEmptyFields()}>
               Sign-in
             </button>
           </div>
