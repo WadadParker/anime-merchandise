@@ -1,3 +1,3 @@
-## E-Commerce Backend
+## AnimeCon E-commerce Application
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+This is a E-commerce Application with theme as anime merchandise. 
