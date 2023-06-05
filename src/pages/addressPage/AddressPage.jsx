@@ -9,7 +9,7 @@ import { NavBar } from "../../components/navbar/NavBar";
 import { AddressForm } from "./AddressForm";
 
 export const AddressPage = () => {
-  const { cartList, totalPrice } = useContext(CartWishlistContext);
+  const { cartList, totalPrice,clearCart } = useContext(CartWishlistContext);
   const { state, setModalOpen, dispatch } = useContext(AddressContext);
   const { addressList, selectedAddressIndex } = state;
   const selectedAddress = addressList[selectedAddressIndex];
@@ -50,6 +50,7 @@ export const AddressPage = () => {
             theme: "colored",
             });
             navigate("/order");
+            clearCart();
             },
             prefill:{
               name:"Wadad",

@@ -34,7 +34,7 @@ export const ProductPage = () => {
     else {
       navigate("/login");
     }
-    setTimeout(() => setIsDisabled(false), 1500);
+    setTimeout(() => setIsDisabled(false), 300);
   };
 
   const wishListCLickHandler=(item)=>
@@ -47,7 +47,7 @@ export const ProductPage = () => {
     else {
       navigate("/login");
     }
-    setTimeout(() => setIsDisabled(false), 1500);
+    setTimeout(() => setIsDisabled(false), 300);
   }
 
   return (

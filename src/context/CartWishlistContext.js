@@ -248,6 +248,10 @@ export const CartWishlistProvider = ({ children }) => {
     dispatch({ type: "CART", payload: [] });
     dispatch({ type: "WISHLIST", payload: [] });
   };
+  const clearCart=()=>
+  {
+    dispatch({type:"CART",payload:[]})
+  }
   return (
     <CartWishlistContext.Provider
       value={{
@@ -267,6 +271,7 @@ export const CartWishlistProvider = ({ children }) => {
         logoutHandler,
         isLoading,
         setIsLoading,
+        clearCart
       }}
     >
       {children}
