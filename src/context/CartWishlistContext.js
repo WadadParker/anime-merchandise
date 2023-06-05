@@ -30,7 +30,7 @@ export const CartWishlistProvider = ({ children }) => {
   const getCart = async () => {
     const encodedToken = localStorage.getItem("token");
     try {
-      if (encodedToken !== "") {
+      if (encodedToken!=="") {
         const response = await axios.get("/api/user/cart", {
           headers: { authorization: encodedToken },
         });
@@ -51,7 +51,7 @@ export const CartWishlistProvider = ({ children }) => {
           headers: { authorization: encodedToken },
         });
         if (response.status === 200) {
-          dispatch({ type: "WISHLIST", payload: response.data.cart });
+          dispatch({ type: "WISHLIST", payload: response.data.wishlist });
         }
       }
     } catch (error) {
@@ -219,12 +219,13 @@ export const CartWishlistProvider = ({ children }) => {
   };
 
   const inWishlist = (id) => {
-    const foundItem = [...state.wishlist].find(({ _id }) => _id == id);
+    const {wishlist}=state;
+    const foundItem = wishlist?.find(({ _id }) => _id == id);
     if (foundItem === undefined) return true;
     else return false;
   };
   const inCart = (id) => {
-    const foundCartItem = [...state.cartList].find(({ _id }) => _id == id);
+    const foundCartItem = [...state?.cartList].find(({ _id }) => _id == id);
     if (foundCartItem === undefined) return true;
     else return false;
   };
@@ -251,6 +252,7 @@ export const CartWishlistProvider = ({ children }) => {
         state,
         cartList,
         getCart,
+        getWishlist,
         addToCart,
         incrementQuantity,
         decrementQuantity,

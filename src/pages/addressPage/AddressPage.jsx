@@ -1,5 +1,7 @@
 import "./AddressPage.css";
 import { useContext } from "react";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { AddressContext } from "./AddressContext";
@@ -11,7 +13,61 @@ export const AddressPage = () => {
   const { state, setModalOpen, dispatch } = useContext(AddressContext);
   const { addressList, selectedAddressIndex } = state;
   const selectedAddress = addressList[selectedAddressIndex];
+  const navigate=useNavigate();
 
+  const checkoutHandler=()=>
+  {
+    if(selectedAddress===""||selectedAddress===undefined)
+    {
+        toast.warn('Please select an address', {
+            position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            })
+    }
+    else {
+        var option={
+            key:"rzp_test_gZUyFL8iSOmzRO",
+            key_secret:"NhxYofCc6J74MYtxV4N736G8",
+            amount:Number(totalPrice) * 100,
+            currency:'INR',
+            name:"AnimeCon_Hubli",
+            description:"Checkout for Merch",
+            handler:function(response){
+              toast.success("Payment successful",{
+                position: "top-left",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            navigate("/order");
+            },
+            prefill:{
+              name:"Wadad",
+              email:"wadadparker@gmail.com",
+              contact: "9320003121",
+
+            },
+            notes:{
+              address:"Razorpay Corporate Office"
+            },
+            theme:{
+              color:"#3399cc",
+            },
+        };
+        var pay=new window.Razorpay(option);
+        pay.open();
+    }
+  }
   return (
     <>
       <NavBar />
@@ -114,7 +170,7 @@ export const AddressPage = () => {
               </p>
             </>
           )}
-          <button>Checkout</button>
+          <button onClick={checkoutHandler}>Checkout</button>
         </div>
       </div>
     </>

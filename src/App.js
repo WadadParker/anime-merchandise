@@ -18,6 +18,7 @@ import { WishListPage } from "./pages/cartAndWishlistPage/WishlistPage";
 import { AddressPage } from "./pages/addressPage/AddressPage";
 import { ProductCard } from "./pages/productCard/ProductCard";
 import { Home } from "./pages/home/Home";
+import { OrderPage } from "./pages/orderPage/OrderPage";
 
 function App() {
   return (
@@ -66,6 +67,7 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route path="/order" element={<RequiresAuth><OrderPage /></RequiresAuth>} />
       </Routes>
     </div>
   );
