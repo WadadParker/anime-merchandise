@@ -39,6 +39,12 @@ export const AddressProvider=({children})=>
                     }
                 })
                 return {...item,addressList:updatedAddresList,editAddress:false}
+            
+            case "DELETE_ADDRESS":
+                const deletedAddresslist=addressList.filter((item,i)=>i!==index)  
+                return {...item,addressList:deletedAddresslist}  
+
+
             default:
                 return item;    
         }

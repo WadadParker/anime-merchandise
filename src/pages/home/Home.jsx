@@ -19,7 +19,7 @@ export const Home=()=>
             <h1>Find your fav anime merch</h1>
             <div className="home-header">
                 <img alt="" src="https://9tailedkitsune.com/wp-content/uploads/2022/06/anyacuteaf-1024x576.jpg" width={1024} height={576} />
-                <button onClick={()=>navigate("/products")}>Explore Merch</button>
+                <button onClick={()=>{navigate("/products");window.scrollTo(0, 0)}}>Explore Merch</button>
                 </div>
                 <h1>Categories</h1>
             <div className="category-container">

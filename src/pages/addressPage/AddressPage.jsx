@@ -106,6 +106,7 @@ export const AddressPage = () => {
                       <b>Mobile: </b> {number}
                     </p>
                   </main>
+                  <div className="address-icons-container">
                   <i
                     class="fa-solid fa-pen-to-square address-edit"
                     onClick={() => {
@@ -117,6 +118,8 @@ export const AddressPage = () => {
                       setModalOpen(true);
                     }}
                   ></i>
+                  <i class="fa-solid fa-trash address-edit" onClick={()=>dispatch({type:"DELETE_ADDRESS",index: addressIndex})}></i>
+                  </div>
                 </li>
               );
             })}
