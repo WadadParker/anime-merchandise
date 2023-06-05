@@ -17,6 +17,8 @@ export const CartWishlistProvider = ({ children }) => {
       case "WISHLIST":
         setIsLoading(false);
         return { ...list, wishlist: payload };
+      default:
+        return list;  
     }
   };
 

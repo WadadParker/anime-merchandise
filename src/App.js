@@ -1,8 +1,6 @@
 import "./App.css";
-import logo from "./logo.png";
 import { Route, Routes } from "react-router-dom";
 
-import { NavBar } from "./components/navbar/NavBar";
 import { RequiresAuth } from "./components/RequiresAuth";
 import Mockman from "mockman-js";
 import { ToastContainer } from "react-toastify";

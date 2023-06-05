@@ -29,7 +29,7 @@ export const WishListPage = () => {
             const { _id, title, img, price } = item;
             return (
               <li key={_id}>
-                <img src={img} width={200} height={250} />
+                <img alt="" src={img} width={200} height={250} />
                 <p>{title}</p>
                 <strong>Rs {price}</strong>
                 <button

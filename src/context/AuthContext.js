@@ -23,6 +23,8 @@ export const AuthProvider = ({ children }) => {
         return { ...auth, passwordIcon: !auth.passwordIcon };
       case "TOGGLE_CONFIRM_PASSWORD":
         return { ...auth, confirmPasswordIcon: !auth.confirmPasswordIcon };
+      default:
+        return auth;  
     }
   };
 

@@ -84,7 +84,6 @@ export const AddressPage = () => {
                 pincode,
                 fullAddress,
                 city,
-                altphno,
                 chooseState,
               } = item;
               return (

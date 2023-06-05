@@ -70,6 +70,7 @@ export const ProductPage = () => {
                     ></i>
                   )}
                   <img
+                    alt=""
                     src={img}
                     width={200}
                     height={250}

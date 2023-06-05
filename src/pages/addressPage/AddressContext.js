@@ -39,6 +39,8 @@ export const AddressProvider=({children})=>
                     }
                 })
                 return {...item,addressList:updatedAddresList,editAddress:false}
+            default:
+                return item;    
         }
     }
 

@@ -32,7 +32,7 @@ export const ProductCard = () => {
           <LoadingSpinner />
         ) : (
           <div className="product-card-container">
-            <img src={product?.img} width={300} height={350} />
+            <img alt="" src={product?.img} width={300} height={350} />
             <div className="product-details-container">
               <p>{product?.title}</p>
               <strong className="price-with-flex-grow">
