@@ -8,7 +8,7 @@ import {BrowserRouter} from "react-router-dom";
 import { ProductContext,ProductProvider } from "./context/ProductContext";
 import { AuthProvider,AuthContext } from "./context/AuthContext";
 import { CartWishlistContext,CartWishlistProvider } from "./context/CartWishlistContext";
-import { AddressContext,AddressProvider } from "./pages/addressPage/AddressContext";
+import { AddressProvider } from "./pages/addressPage/AddressContext";
 
 
 export {AuthContext};

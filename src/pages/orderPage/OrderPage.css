@@ -1,0 +1,14 @@
+.order-confirmed-container {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+.shop-more {
+    font-size: 1.5rem;
+    background-color: black;
+    border: 0;
+    border-radius: 0.6rem;
+    padding:1rem 2rem;
+    cursor: pointer;
+    color: white;
+    margin-top: 2rem;
+}

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext,useState } from "react";
 import { useNavigate } from "react-router";
 
 import { ProductContext } from "../../context/ProductContext";
@@ -22,8 +22,10 @@ export const ProductPage = () => {
     incrementQuantity,
     removeFromWishlist,
   } = useContext(CartWishlistContext);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const clickHandler = (cartItem) => {
+    setIsDisabled(true); 
     if(isLoggedIn)
     {
     if (!inCart(cartItem._id)) incrementQuantity(cartItem._id);
@@ -32,10 +34,12 @@ export const ProductPage = () => {
     else {
       navigate("/login");
     }
+    setTimeout(() => setIsDisabled(false), 300);
   };
 
   const wishListCLickHandler=(item)=>
   {
+    setIsDisabled(true);
     if(isLoggedIn)
     {
     addToWishlist(item)
@@ -43,6 +47,7 @@ export const ProductPage = () => {
     else {
       navigate("/login");
     }
+    setTimeout(() => setIsDisabled(false), 300);
   }
 
   return (
@@ -70,6 +75,7 @@ export const ProductPage = () => {
                     ></i>
                   )}
                   <img
+                    alt=""
                     src={img}
                     width={200}
                     height={250}
@@ -81,7 +87,8 @@ export const ProductPage = () => {
                   </div>
                   <strong>Rs {price}</strong>
                   {inCart(_id) ? (
-                    <button
+                    <button 
+                      disabled={isDisabled}
                       className="add-to-cart"
                       onClick={() => clickHandler(item)}
                     >
@@ -89,6 +96,7 @@ export const ProductPage = () => {
                     </button>
                   ) : (
                     <button
+                      disabled={isDisabled}
                       className="go-to-cart"
                       onClick={() => navigate("/cart")}
                     >

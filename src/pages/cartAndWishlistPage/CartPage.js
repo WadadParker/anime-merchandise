@@ -27,7 +27,7 @@ export const CartPage = () => {
       :(<div className="cart-container">
         <ul className="cart-list-container">
           {cartList.map((item) => {
-            const { _id, title, img, rating, qty, price } = item;
+            const { _id, title, img, qty, price } = item;
             return (
               <li className="cart-item-container" key={_id}>
                 {inWishlist(_id) ? (
@@ -41,7 +41,7 @@ export const CartPage = () => {
                     onClick={() => removeFromWishlist(_id)}
                   ></i>
                 )}
-                <img src={img} width={200} height={200} />
+                <img alt="" src={img} width={200} height={200} />
                 <div className="cart-item-description">
                   <p>{title}</p>
                   <b style={{ flexGrow: "1" }}>Rs {price}</b>

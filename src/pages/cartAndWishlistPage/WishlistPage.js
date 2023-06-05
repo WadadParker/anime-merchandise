@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { CartWishlistContext } from "../../context/CartWishlistContext";
 import { NavBar } from "../../components/navbar/NavBar";
@@ -10,13 +10,16 @@ export const WishListPage = () => {
   const { state, inCart, addToCart, removeFromWishlist, incrementQuantity } =
     useContext(CartWishlistContext);
   const { wishlist } = state;
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const clickHandler = (id, cartItem) => {
+    setIsDisabled(true); 
     if (inCart(id)) {
       addToCart(cartItem);
     } else {
       incrementQuantity(id);
     }
+    setTimeout(() => setIsDisabled(false), 1500);
   };
   return (
     <>
@@ -29,10 +32,11 @@ export const WishListPage = () => {
             const { _id, title, img, price } = item;
             return (
               <li key={_id}>
-                <img src={img} width={200} height={250} />
+                <img alt="" src={img} width={200} height={250} />
                 <p>{title}</p>
                 <strong>Rs {price}</strong>
                 <button
+                  disabled={isDisabled}
                   className="add-to-cart"
                   onClick={() => clickHandler(_id, item)}
                 >

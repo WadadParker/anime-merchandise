@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router";
 
 import { NavBar } from "../../components/navbar/NavBar";
@@ -21,9 +21,23 @@ export const ProductCard = () => {
     state: { productList,isProductLoading },
   } = useContext(ProductContext);
   const navigate = useNavigate();
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const { productId } = useParams();
   const product = productList.find(({ _id }) => _id == productId);
+
+  const cartClickHandler=()=>
+  {
+    setIsDisabled(true); 
+    addToCart(product)
+    setTimeout(() => setIsDisabled(false), 300);
+  }
+  const wishlistClickHandler=()=>
+  {
+    setIsDisabled(true); 
+    addToWishlist(product)
+    setTimeout(() => setIsDisabled(false), 300);
+  }
   return (
     <>
       <NavBar />
@@ -32,7 +46,7 @@ export const ProductCard = () => {
           <LoadingSpinner />
         ) : (
           <div className="product-card-container">
-            <img src={product?.img} width={300} height={350} />
+            <img alt="" src={product?.img} width={300} height={350} />
             <div className="product-details-container">
               <p>{product?.title}</p>
               <strong className="price-with-flex-grow">
@@ -45,8 +59,9 @@ export const ProductCard = () => {
             <div className="button-container">
               {inCart(product?._id) ? (
                 <button
+                  disabled={isDisabled}
                   className="add-to-cart"
-                  onClick={() => addToCart(product)}
+                  onClick={() => cartClickHandler()}
                 >
                   Add to Cart
                 </button>
@@ -60,8 +75,9 @@ export const ProductCard = () => {
               )}
               {inWishlist(product?._id) ? (
                 <button
+                  disabled={isDisabled}
                   className="add-to-cart"
-                  onClick={() => addToWishlist(product)}
+                  onClick={() => wishlistClickHandler()}
                 >
                   Add to Wishlist
                 </button>
