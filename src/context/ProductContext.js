@@ -4,7 +4,7 @@ import axios from "axios";
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const productReducer = (product, { type, payload }) => {
+  const productReducer = (product, { type, payload, input }) => {
     switch (type) {
       case "INITIAL_VALUE":
         return { ...product, productList: payload,isProductLoading:false };
@@ -26,7 +26,10 @@ export const ProductProvider = ({ children }) => {
         };
 
       case "SORT":
-        return { ...product, sort: payload };
+        if(input)
+        return { ...product, sort: payload, lowSortCheck:true,highSortCheck:false };
+        else
+        return { ...product, sort: payload, lowSortCheck:false,highSortCheck:true };  
 
       case "CLEAR_FILTERS":
         return {
@@ -39,6 +42,8 @@ export const ProductProvider = ({ children }) => {
             stickers: false,
           },
           sort: "",
+          lowSortCheck:false,
+          highSortCheck:false,
         };
 
       default:
@@ -56,6 +61,8 @@ export const ProductProvider = ({ children }) => {
       stickers: false,
     },
     sort: "",
+    lowSortCheck:false,
+    highSortCheck:false,
     productList: [],
     isProductLoading:true,
   };

@@ -8,7 +8,7 @@ export const FilterBar = () => {
   const {
     categoryCheck: { oversize, winterWear, figurine, stickers },
   } = state;
-  const { slider } = state;
+  const { slider,lowSortCheck,highSortCheck } = state;
 
   const changeHandler = (event) => {
     dispatch({ type: "CATEGORY_CHECK", payload: event });
@@ -81,16 +81,18 @@ export const FilterBar = () => {
         <input
           id="lowSort"
           type="radio"
+          checked={lowSortCheck}
           name="sort"
-          onChange={() => dispatch({ type: "SORT", payload: "lowSort" })}
+          onChange={() => dispatch({ type: "SORT", payload: "lowSort", input:true })}
         />
         <label htmlFor="lowSort">Sort Low to High</label>
         <br />
         <input
           id="highSort"
           type="radio"
+          checked={highSortCheck}
           name="sort"
-          onChange={() => dispatch({ type: "SORT", payload: "highSort" })}
+          onChange={() => dispatch({ type: "SORT", payload: "highSort", input:false })}
         />
         <label htmlFor="highSort">Sort High to Low</label>
       </div>
